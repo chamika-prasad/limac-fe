@@ -18,31 +18,16 @@ const ImageSlider: React.FC = () => {
   const runTimeOutRef = useRef<NodeJS.Timeout | null>(null);
   const runNextAutoRef = useRef<NodeJS.Timeout | null>(null);
 
-  const handleScroll = () => {
-    const headerElement = document.querySelector(".header");
-    /* eslint-disable @typescript-eslint/no-unused-expressions */
-    if (headerElement) {
-      (headerElement as HTMLElement).style.visibility = "visible";
-      window.scrollY !== 0
-        ? ((headerElement as HTMLElement).style.visibility = "visible")
-        : ((headerElement as HTMLElement).style.visibility = "hidden");
-    }
-    /* eslint-enable @typescript-eslint/no-unused-expressions */
-  };
-
   useEffect(() => {
     // Set up initial auto-slide
     runNextAutoRef.current = setTimeout(() => {
       showSlider("next");
     }, timeAutoNext);
 
-    window.addEventListener("scroll", handleScroll);
-
     // Clean up timeouts on unmount
     return () => {
       if (runTimeOutRef.current) clearTimeout(runTimeOutRef.current);
       if (runNextAutoRef.current) clearTimeout(runNextAutoRef.current);
-      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 

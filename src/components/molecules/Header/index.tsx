@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Typography } from "@/components/atoms/Typography";
 import logo from "@/assets/images/logo.png";
 import menu from "@/assets/images/menu.png";
@@ -11,6 +11,7 @@ import "./index.scss";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const headerRef = React.useRef<HTMLElement | null>(null);
 
   const navItems = [
     { label: "Home", path: "/" },
@@ -19,12 +20,35 @@ export const Header = () => {
     { label: "About Us", path: "/about" },
     { label: "Contact Us", path: "/contact" },
   ];
+
+  const handleScroll = () => {
+    /* eslint-disable @typescript-eslint/no-unused-expressions */
+    if (headerRef.current) {
+      headerRef.current.style.visibility = "visible";
+      window.scrollY !== 0
+        ? (headerRef.current.style.visibility = "visible")
+        : (headerRef.current.style.visibility = "hidden");
+    }
+    /* eslint-enable @typescript-eslint/no-unused-expressions */
+  };
+
+  useEffect(() => {
+    // Set up initial auto-slide
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Clean up timeouts on unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <header className="header">
+    <header className="header" ref={headerRef}>
       <div className="header__container">
         {/* Logo on the left */}
         <div className="header__logo">
-         {/* eslint-disable-next-line @next/next/no-img-element */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={logo.src} alt="IDLIMAC Logo" />
         </div>
 
