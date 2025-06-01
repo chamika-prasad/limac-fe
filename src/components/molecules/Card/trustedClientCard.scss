@@ -1,0 +1,22 @@
+@import "./../../../styles/colors.scss";
+
+.client-wrapper {
+  padding: 20px;
+  background: $color-oxford-blue;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  min-width: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+
+  .client-logo {
+    width: 45px;
+  }
+}
+
+.client-name {
+  color: $color-lavender-gray;
+  font-size: 18px;
+}

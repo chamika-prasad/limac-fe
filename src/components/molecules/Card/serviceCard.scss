@@ -1,0 +1,57 @@
+@import "./../../../styles/colors.scss";
+
+.service-card {
+  background: $color-dark-blue;
+  padding: 2rem;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+  height: 100%;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  .title-icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 13px;
+  }
+
+  .icon-wrapper {
+    width: 63px;
+    height: 63px;
+    border-radius: 25%;
+  }
+
+  .card-title {
+    color: $color-white;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+    font-size: 24px;
+  }
+
+  .list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .list-item {
+    margin-bottom: 0.8rem;
+    position: relative;
+    padding-left: 1.5rem;
+
+    // &::before {
+    //   content: "•";
+    //   position: absolute;
+    //   left: 0;
+    //   color: $color-white;
+    // }
+  }
+
+  .item-text {
+    color: $color-white;
+    margin: 0;
+  }
+}

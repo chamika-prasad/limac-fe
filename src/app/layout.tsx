@@ -1,15 +1,71 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import {
+  Inter,
+  Poppins,
+  Roboto,
+  Work_Sans,
+} from "next/font/google";
+import { Header } from "@/components/molecules/Header";
+import { Footer } from "@/components/molecules/Footer";
+import classNames from "classnames";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// Define Inter fonts
+const interExtraBold = Inter({
   subsets: ["latin"],
+  weight: "800", // 800 is extra bold
+  variable: "--font-inter-extra-bold",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const interBold = Inter({
   subsets: ["latin"],
+  weight: "700",
+  variable: "--font-inter-bold",
+});
+
+// Define Poppins fonts
+const poppinsMedium = Poppins({
+  subsets: ["latin"],
+  weight: "500",
+  variable: "--font-poppins-medium",
+});
+
+const poppinsRegular = Poppins({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-poppins-regular",
+});
+
+const poppinsSemiBold = Poppins({
+  subsets: ["latin"],
+  weight: "600",
+  variable: "--font-poppins-semi-bold",
+});
+
+const poppinsBold = Poppins({
+  subsets: ["latin"],
+  weight: "700",
+  variable: "--font-poppins-bold",
+});
+
+const poppinsLight = Poppins({
+  subsets: ["latin"],
+  weight: "300",
+  variable: "--font-poppins-light",
+});
+
+// Define Roboto
+const robotoSemiBold = Roboto({
+  subsets: ["latin"],
+  weight: "600",
+  variable: "--font-roboto-semi-bold",
+});
+
+// Define Work Sans
+const workSansRegular = Work_Sans({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-work-sans-regular",
 });
 
 export const metadata: Metadata = {
@@ -24,9 +80,23 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <Header />
+      <body
+        className={classNames(
+          poppinsMedium.variable,
+          poppinsRegular.variable,
+          poppinsSemiBold.variable,
+          poppinsBold.variable,
+          poppinsLight.variable,
+          robotoSemiBold.variable,
+          workSansRegular.variable,
+          interExtraBold.variable,
+          interBold.variable
+        )}
+      >
         {children}
       </body>
+      <Footer />
     </html>
   );
 }

@@ -1,0 +1,41 @@
+.image-gellary-wrapper {
+  // columns-1 sm:columns-2 lg:columns-3 py-10 md:py-20 gap-4
+  columns: 1;
+  padding-top: 2.5rem; // py-10
+  padding-bottom: 2.5rem;
+  gap: 1rem; // gap-4
+
+  @media (min-width: 640px) {
+    // sm breakpoint
+    columns: 2;
+  }
+
+  @media (min-width: 1024px) {
+    // lg breakpoint
+    columns: 3;
+  }
+
+  @media (min-width: 1440px) {
+    // lg breakpoint
+    columns: 4;
+  }
+
+  @media (min-width: 768px) {
+    // md breakpoint
+    padding-top: 5rem; // py-20
+    padding-bottom: 5rem;
+  }
+
+  .image-wrapper {
+    // mb-4 break-inside-avoid
+    margin-bottom: 1rem; // mb-4
+    break-inside: avoid;
+
+    img {
+      // w-full object-cover rounded-lg
+      width: 100%; // w-full
+      object-fit: cover; // object-cover
+      border-radius: 0.5rem; // rounded-lg
+    }
+  }
+}

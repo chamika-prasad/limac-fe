@@ -1,0 +1,36 @@
+@import "./../../../styles/colors.scss";
+
+.hero-text-img-wrapper {
+  position: relative;
+  height: 400px;
+
+  .image {
+    object-fit: cover;
+    height: 100%;
+  }
+
+  .hero-topic-description-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    .hero-topic {
+      color: $color-white;
+      max-width: 700px;
+      font-size: 64px;
+      text-align: center;
+    }
+
+    .hero-description {
+      color: $color-white;
+      max-width: 900px;
+      text-align: center;
+    }
+  }
+}

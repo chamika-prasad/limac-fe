@@ -1,0 +1,59 @@
+@import "./../../../styles/colors.scss";
+
+.service-item-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
+  justify-content: center;
+  border-radius: 10px;
+  background-color: $color-dark-blue;
+  padding: 25px 20px;
+
+  .logo-topic-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    .logo-container {
+      padding: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: $color-white;
+    }
+
+    .service-item-title {
+      color: $color-white;
+      font-size: 32px;
+    }
+  }
+
+  .list-wrapper {
+    box-sizing: border-box;
+    width: 100%;
+    .service-list {
+      display: grid;
+      grid-template-columns: auto auto auto;
+
+      .item {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        padding: 5px;
+
+        .indecator {
+          width: 5px;
+          height: 5px;
+          border-radius: 50%;
+          background-color: $color-white;
+        }
+
+        .item-name {
+          color: $color-white;
+        }
+      }
+    }
+  }
+}

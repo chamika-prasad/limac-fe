@@ -1,0 +1,41 @@
+@import "./../../styles/colors.scss";
+
+.projects-page-wrapper {
+  background: linear-gradient(
+    to right,
+    rgba(136, 133, 120, 0.16) 20%,
+    rgba(87, 86, 86, 0.78) 95%
+  );
+
+  padding: 50px 50px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  height: 100%;
+
+  .projects-description {
+    color: $color-dark-gray;
+    text-align: justify;
+  }
+
+  .projects-list {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+
+    .project-holder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .project-card {
+        // width: 100%;
+      }
+    }
+  }
+}

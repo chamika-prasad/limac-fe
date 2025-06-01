@@ -1,0 +1,341 @@
+@import "./../styles/colors.scss";
+
+.home-wrapper {
+  background: linear-gradient(
+    to right,
+    rgba(136, 133, 120, 0.16) 20%,
+    rgba(87, 86, 86, 0.78) 95%
+  );
+
+  .clients {
+    padding: 4rem 0;
+
+    .clients-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      // padding: 0 2rem;
+      text-align: center;
+    }
+
+    .clients-title {
+      color: $color-dark-blue;
+      margin-bottom: 2rem;
+      text-transform: uppercase;
+      font-size: 26px;
+      text-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    }
+
+    .clients-logos {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 3rem;
+      margin-top: 2rem;
+    }
+
+    @media screen and (max-width: 1220px) {
+      padding-left: 50px;
+      padding-right: 50px;
+    }
+
+    @media screen and (max-width: 768px) {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+
+    @media screen and (max-width: 500px) {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+
+  .services {
+    // padding: 5rem 0;
+    background-color: $transparent;
+
+    @media screen and (max-width: 1220px) {
+      padding-left: 50px;
+      padding-right: 50px;
+    }
+
+    @media screen and (max-width: 768px) {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+
+    @media screen and (max-width: 500px) {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      // padding: 0 2rem;
+    }
+
+    .title {
+      // color: $color-dark-blue;
+      text-align: center;
+      margin-bottom: 1rem;
+      // font-size: 48px;
+      // text-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    }
+
+    .description {
+      text-align: center;
+      color: $color-dark-gray;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .service-carousel-custom-styles {
+      padding: 20px 0px;
+    }
+  }
+
+  .build-section {
+    // position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    color: $color-white;
+    overflow: hidden;
+
+    @media screen and (max-width: 1220px) {
+      padding-left: 50px;
+      padding-right: 50px;
+    }
+
+    @media screen and (max-width: 768px) {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+
+    @media screen and (max-width: 500px) {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .background-image {
+      position: relative;
+      display: flex;
+      align-self: center;
+      overflow: hidden;
+      width: 100%; // Take full available width
+      max-width: 1200px;
+      min-height: 460px; // Use min-height instead of max-height
+      // height: 460px; // Fixed height to maintain consistency
+
+      // Ensure no background shows through
+      background-color: $color-charcoal; // Fallback background color
+
+      .image {
+        width: 120%; // Make image larger to account for parallax movement
+        height: 150%; // Make image larger to account for parallax movement
+        min-width: 120%;
+        min-height: 200%;
+        object-fit: cover;
+        position: relative;
+        top: -30%; // Offset to center the oversized image
+// left: -10%;
+      }
+
+      @media (max-width: 768px) {
+        // min-height: 320px; // Slightly larger than container
+        min-height: 300px;
+        // height: 460px;
+      }
+
+      @media (max-width: 500px) {
+        // min-height: 320px; // Slightly larger than container
+        min-height: 250px;
+        // height: 460px;
+      }
+
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          rgba($color-charcoal, 0.8) 0%,
+          rgba($color-charcoal, 0.5) 50%,
+          rgba($color-charcoal, 0.2) 100%
+        );
+        z-index: 2;
+      }
+    }
+
+    .content {
+      position: relative;
+      z-index: 3;
+      max-width: 1200px;
+      width: 90%;
+      margin: 0 auto;
+      // padding: 3rem;
+      text-align: center;
+
+      .title {
+        // font-size: 48px;
+        margin-bottom: 1.5rem;
+        // color: $color-dark-blue;
+        // text-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+
+        @media (max-width: 768px) {
+          font-size: 36px;
+          padding: 0px;
+        }
+
+        @media (max-width: 500px) {
+          font-size: 28px;
+        }
+      }
+
+      .description {
+        font-size: 1.2rem;
+        max-width: 700px;
+        margin: 0 auto 2rem;
+        line-height: 1.6;
+        color: $color-charcoal;
+
+        @media (max-width: 768px) {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+
+  .projects {
+    padding: 40px 0;
+    background-color: $transparent;
+
+    @media screen and (max-width: 1220px) {
+      padding-left: 50px;
+      padding-right: 50px;
+    }
+
+    @media screen and (max-width: 768px) {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+
+    @media screen and (max-width: 500px) {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      // padding: 0 2rem;
+    }
+
+    .title {
+      // color: $color-dark-blue;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .description {
+      text-align: center;
+      color: $color-dark-gray;
+      max-width: 700px;
+      margin: 0 auto 3rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+
+      .project-holder {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    //     .grid {
+    //       display: flex;
+    // justify-content: space-between;
+    // flex-wrap: wrap;
+    //       .project-holder{
+    //        width: 33%;
+    //       }
+    //     }
+
+    .card {
+      background: $color-white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .cardTitle {
+      color: $color-dark-blue;
+      margin-bottom: 1rem;
+    }
+
+    .cardText {
+      color: $color-dark-gray;
+      margin-bottom: 1.5rem;
+    }
+
+    .readMore {
+      background: $transparent;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      color: $color-bright-blue;
+      font-weight: 600;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: $color-dark-blue;
+      }
+    }
+
+    .cta {
+      display: flex;
+      justify-content: center;
+    }
+
+    .contact-button {
+      background: $color-dark-blue;
+      color: $color-white;
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 4px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        // background: darken($color-white, 5%);
+        transform: translateY(-2px);
+      }
+    }
+  }
+
+  .title-common {
+    font-size: 48px;
+    color: $color-dark-blue;
+    text-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+
+    @media screen and (max-width: 500px) {
+      font-size: 36px;
+    }
+  }
+}

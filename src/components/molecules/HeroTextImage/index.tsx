@@ -1,0 +1,38 @@
+import React from "react";
+import { Typography } from "@/components/atoms/Typography";
+import "./index.scss";
+
+interface IHeroTextImageProps {
+  imageUrl: string;
+  altText?: string;
+  topic: string;
+  description?: string;
+}
+
+export const HeroTextImage = ({
+  imageUrl,
+  altText,
+  topic,
+  description,
+}: IHeroTextImageProps) => {
+  return (
+    <div className="hero-text-img-wrapper">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={imageUrl} alt={altText} className="image" />
+      <div className="hero-topic-description-wrapper">
+        <Typography
+          variant="h1"
+          label={topic}
+          styles="hero-topic poppins-bold"
+        />
+        {description && (
+          <Typography
+            variant="p"
+            label={description}
+            styles="hero-description work-sans-regular"
+          />
+        )}
+      </div>
+    </div>
+  );
+};

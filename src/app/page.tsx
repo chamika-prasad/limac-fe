@@ -1,95 +1,210 @@
+"use client";
+
+import { Typography } from "@/components/atoms/Typography";
+import { HomeRecentProjectCard } from "@/components/molecules/Card/homeRecentProjectCard";
+import { ServiceCard } from "@/components/molecules/Card/serviceCard";
+import { Button } from "@/components/atoms/Button";
+import homeImage2 from "@/assets/images/home_02.jpg";
 import Image from "next/image";
-import styles from "./page.module.css";
+import ImageSlider from "@/components/organisams/ImageSlider";
+import PageLoader from "@/components/organisams/PageLoader";
+import Carousel from "@/components/molecules/carousel";
+import { Client } from "@/types";
+import ServiceCarousel from "@/components/molecules/ServiceCarousel";
+import { ParallaxProvider, Parallax } from "react-scroll-parallax";
+import "./page.scss";
+
+const clients: Client[] = [
+  { name: "SPARK", logo: "assets/images/spark.png" },
+  { name: "LOGAZ", logo: "assets/images/logaz.png" },
+  { name: "SPONA", logo: "assets/images/spona.png" },
+  { name: "OLLA", logo: "assets/images/olla.png" },
+  { name: "SPONA", logo: "assets/images/spona.png" },
+  { name: "OLLA", logo: "assets/images/olla.png" },
+  { name: "LOGAZ", logo: "assets/images/logaz.png" },
+  // { name: "LOGAZ", logo: "assets/images/logaz.png" },
+];
+
+const services = [
+  {
+    title: "Design & Build Solution",
+    items: [
+      "Lorem Ipsum",
+      "has been the",
+      "industry's standard",
+      "Lorem Ipsum",
+      "has been the",
+      "industry's standard",
+    ],
+    logo: "assets/images/design_icon.png",
+  },
+  {
+    title: "Building Constructions",
+    items: [
+      "Lorem Ipsum",
+      "has been the",
+      "industry's standard",
+      "Lorem Ipsum",
+      "has been the",
+      "industry's standard",
+    ],
+    logo: "assets/images/building_icon.png",
+  },
+  {
+    title: "Project Management",
+    items: [
+      "Lorem Ipsum",
+      "has been the",
+      "industry's standard",
+      "Lorem Ipsum",
+      "has been the",
+      "industry's standard",
+    ],
+    logo: "assets/images/project_icon.png",
+  },
+];
+
+const projects = [
+  {
+    title: "Canadian Construction Branches",
+    description:
+      "We'll Supply You With Materials To Create Your Dream Property From Foundation To Finish. Call To Get Started!",
+    image: "assets/images/recent_01.png",
+  },
+  {
+    title: "Canadian Construction Branches",
+    description:
+      "We'll Supply You With Materials To Create Your Dream Property From Foundation To Finish. Call To Get Started!",
+    image: "assets/images/recent_01.png",
+  },
+  {
+    title: "Australian Construction Branches",
+    description:
+      "We'll Supply You With Materials To Create Your Dream Property From Foundation To Finish. Call To Get Started!",
+    image: "assets/images/recent_02.png",
+  },
+  {
+    title: "Brazilian Construction Branches",
+    description:
+      "We'll Supply You With Materials To Create Your Dream Property From Foundation To Finish. Call To Get Started!",
+    image: "assets/images/recent_03.png",
+  },
+];
 
 export default function Home() {
+  const handleClick = () => {};
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <ParallaxProvider>
+      <main className="home-wrapper">
+        <PageLoader/>
+        <ImageSlider />
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+        <section className="clients">
+          <div className="clients-container">
+            <Typography
+              variant="h2"
+              label="OUR TRUSTED CLIENTS"
+              styles="clients-title inter-bold"
             />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
+
+            <div className="clients-logos">
+              <Carousel slides={clients} />
+            </div>
+          </div>
+        </section>
+        <section className="services">
+          <div className="container">
+            <Typography
+              variant="h2"
+              label="Our Services"
+              styles="title title-common poppins-semi-bold"
+            />
+
+            <Typography
+              variant="p"
+              label="Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+              styles="description poppins-regular"
+            />
+
+            <ServiceCarousel>
+              {services.map((service, index) => (
+                <ServiceCard
+                  title={service.title}
+                  items={service.items}
+                  key={index}
+                  logo={service.logo}
+                />
+              ))}
+            </ServiceCarousel>
+          </div>
+        </section>
+        <section className="build-section ">
+          {/* Content */}
+          <div className="content">
+            <Typography
+              variant="h2"
+              label="Let us help you build."
+              styles="title title-common poppins-semi-bold"
+            />
+            <Typography
+              variant="p"
+              label="Lorem ipsum has been the industry's standard dummy text ever since the 1500s"
+              styles="description poppins-regular"
+            />
+          </div>
+
+          {/* Background Image */}
+          <div className="background-image">
+            <Parallax speed={-15}>
+              <Image
+                src={homeImage2}
+                alt="Construction site"
+                quality={100}
+                className="image"
+                priority
+              />
+            </Parallax>
+            <div className="overlay" />
+          </div>
+        </section>
+        <section className="projects">
+          <div className="container">
+            <Typography
+              variant="h2"
+              label="Recent Projects"
+              styles="title title-common poppins-semi-bold"
+            />
+
+            <Typography
+              variant="p"
+              label="Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+              styles="description poppins-regular"
+            />
+
+            <div className="grid">
+              {projects.map((project, index) => (
+                <div className="project-holder" key={index}>
+                  <HomeRecentProjectCard
+                    Key={index}
+                    projectName={project.title}
+                    projectDescription={project.description}
+                    projectImage={project.image}
+                    className="project-card"
+                  />
+                </div>
+              ))}
+            </div>
+
+            <div className="cta">
+              <Button
+                label="Contact Us"
+                className="contact-button"
+                onClick={handleClick}
+              />
+            </div>
+          </div>
+        </section>
       </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+    </ParallaxProvider>
   );
 }
