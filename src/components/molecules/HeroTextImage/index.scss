@@ -4,9 +4,28 @@
   position: relative;
   height: 400px;
 
+  max-width: 1200px;
+  margin: 0 auto;
+
+  @media screen and (max-width: 1220px) {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
+  @media screen and (max-width: 768px) {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  @media screen and (max-width: 500px) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
   .image {
     object-fit: cover;
     height: 100%;
+    width: 100%;
   }
 
   .hero-topic-description-wrapper {

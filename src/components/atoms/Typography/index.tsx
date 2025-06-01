@@ -2,7 +2,7 @@ import classNames from "classnames";
 import "./index.scss";
 
 interface IProps {
-  label: string;
+  label: string | React.ReactNode;
   onClick?: () => void;
   variant: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p";
   styles?: string;

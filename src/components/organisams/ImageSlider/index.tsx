@@ -95,10 +95,30 @@ const ImageSlider: React.FC = () => {
   };
 
   const items = [
-    { image: "/assets/images/home_bg_01.png", name: "EAGLE" },
-    { image: "/assets/images/home_bg_02.png", name: "OWL" },
-    { image: "/assets/images/home_bg_03.jpg", name: "CROW" },
-    { image: "/assets/images/home_bg_04.jpg", name: "BUTTERFLY" },
+    {
+      image: "/assets/images/home_bg_01.png",
+      title: "Welcome",
+      description:
+        "“From Iconic Residences To Landmark Commercial Spaces, We Deliver Elegance Through Engineering.”",
+    },
+    {
+      image: "/assets/images/home_bg_02.png",
+      title: "Vision",
+      description:
+        "“To lead Sri Lanka's construction industry through innovation, affordability, and sustainable development.”",
+    },
+    {
+      image: "/assets/images/home_bg_03.jpg",
+      title: "Mission",
+      description:
+        "“To deliver quality, cost-effective, and responsible building solutions while empowering communities and exceeding client expectations.”",
+    },
+    {
+      image: "/assets/images/home_bg_04.jpg",
+      title: "Join Us",
+      description:
+        "“Whether you’re planning your next luxury development or seeking a trusted construction partner, we’re here to bring your vision to life. Reach out to us”",
+    },
   ];
 
   return (
@@ -114,7 +134,7 @@ const ImageSlider: React.FC = () => {
             <div className="content">
               <Typography
                 variant="h1"
-                label="Welcome"
+                label={item.title}
                 styles="title inter-extra-bold"
               />
               <Typography
@@ -124,7 +144,7 @@ const ImageSlider: React.FC = () => {
               />
               <Typography
                 variant="p"
-                label="“From Iconic Residences To Landmark Commercial Spaces, We Deliver Elegance Through Engineering.”"
+                label={item.description}
                 styles="des poppins-regular"
               />
               <div className="btn">
