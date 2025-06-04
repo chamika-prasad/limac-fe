@@ -9,9 +9,6 @@ import "aos/dist/aos.css";
 import "./page.scss";
 
 export default function Service() {
-  AOS.init({
-    duration: 1200,
-  });
   {
     /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
   }
@@ -79,6 +76,11 @@ export default function Service() {
   ];
 
   useEffect(() => {
+    // Initialize AOS only on client side
+    AOS.init({
+      duration: 1200,
+    });
+    
     // Set isClient to true once component mounts (client-side only)
     setIsClient(true);
 

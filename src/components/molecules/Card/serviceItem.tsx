@@ -2,9 +2,6 @@
 
 import React, { useEffect, useState } from "react";
 import { Typography } from "@/components/atoms/Typography";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import "./serviceItem.scss";
 
 interface IServiceItemProps {
   items: string[];
