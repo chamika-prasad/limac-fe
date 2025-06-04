@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { Typography } from "@/components/atoms/Typography";
+import "./serviceItem.scss";
 
 interface IServiceItemProps {
   items: string[];
@@ -44,7 +45,6 @@ export const ServiceItem = ({
       data-aos={`fade-${animationSide}`}
     >
       <div className="logo-topic-wrapper">
-        {/* <div className="logo-container"> */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={logoUrl} alt="" />
         {/* </div> */}
