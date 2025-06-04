@@ -81,6 +81,12 @@ const ImageSlider: React.FC = () => {
 
   const items = [
     {
+      image: "/assets/images/home_bg_04.jpg",
+      title: "Join Us",
+      description:
+        "“Whether you’re planning your next luxury development or seeking a trusted construction partner, we’re here to bring your vision to life. Reach out to us”",
+    },
+    {
       image: "/assets/images/home_bg_01.png",
       title: "Welcome",
       description:
@@ -97,12 +103,6 @@ const ImageSlider: React.FC = () => {
       title: "Mission",
       description:
         "“To deliver quality, cost-effective, and responsible building solutions while empowering communities and exceeding client expectations.”",
-    },
-    {
-      image: "/assets/images/home_bg_04.jpg",
-      title: "Join Us",
-      description:
-        "“Whether you’re planning your next luxury development or seeking a trusted construction partner, we’re here to bring your vision to life. Reach out to us”",
     },
   ];
 
