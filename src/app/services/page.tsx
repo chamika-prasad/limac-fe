@@ -4,14 +4,20 @@ import React, { useEffect, useState } from "react";
 import { HeroTextImage } from "@/components/molecules/HeroTextImage";
 import { Typography } from "@/components/atoms/Typography";
 import { ServiceItem } from "@/components/molecules/Card/serviceItem";
-import serviceImg from "@/assets/images/service.png";
-// import serviceIcon from "@/assets/images/serviceIcon.png";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import "./page.scss";
-import Image from "next/image";
 
 export default function Service() {
-   {/* eslint-disable-next-line @typescript-eslint/no-unused-vars */}
-  const [screenWidth, setScreenWidth] = useState<number>(typeof window !== "undefined" ? window.innerWidth : 0);
+  AOS.init({
+    duration: 1200,
+  });
+  {
+    /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
+  }
+  const [screenWidth, setScreenWidth] = useState<number>(
+    typeof window !== "undefined" ? window.innerWidth : 0
+  );
   const [isClient, setIsClient] = useState(false);
   const logoUrl = "assets/images/serviceIcon.png";
 
@@ -23,6 +29,7 @@ export default function Service() {
         "Commercial buildings (Hotel and resort, Apartment)",
         "Industrial buildings",
       ],
+      image: "/assets/images/building-construction.jpg",
     },
     {
       title: "Civil Engineering Works",
@@ -31,6 +38,7 @@ export default function Service() {
         "Road and drainage systems",
         "Structural concrete work",
       ],
+      image: "/assets/images/civil-engineering-works.jpg",
     },
     {
       title: "Project Management",
@@ -39,6 +47,7 @@ export default function Service() {
         "Cost control and budgeting",
         "Site supervision and quality control",
       ],
+      image: "/assets/images/project-management.jpg",
     },
     {
       title: "Renovation & Refurbishment",
@@ -47,6 +56,7 @@ export default function Service() {
         "Luxury hotel renovation",
         "Extensions and modifications",
       ],
+      image: "/assets/images/renovation-refurbishment.jpg",
     },
     {
       title: "Design and Build Solutions",
@@ -54,35 +64,37 @@ export default function Service() {
         "Architectural and structural design",
         "Full turnkey project delivery",
       ],
+      image: "/assets/images/design_and_build_solution.jpg",
     },
     {
       title: "Electrical & Plumbing (EP) Services",
       items: ["Electrical installations", "Plumbing systems"],
+      image: "/assets/images/electrical-plumbing-services.jpg",
     },
     {
       title: "Consultancy Services",
       items: ["Engineering consultancy", "Quantity surveying"],
+      image: "/assets/images/consultancy-services.jpg",
     },
   ];
 
   useEffect(() => {
     // Set isClient to true once component mounts (client-side only)
     setIsClient(true);
-    
+
     const handleResize = () => {
       setScreenWidth(window.innerWidth);
     };
 
     // Set initial screen width
     setScreenWidth(window.innerWidth);
-    
+
     window.addEventListener("resize", handleResize);
 
     return () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-  
 
   return (
     <main className="service-page-wrapper">
@@ -99,12 +111,13 @@ export default function Service() {
 
       <section className="services-list">
         {services.map((service, index) => (
-            <div className="service-item" key={index}>
-            {(index % 2 !== 0 && isClient && screenWidth > 1050) ? (
-              <Image
-              src={serviceImg}
-              alt={`${service.title} image`}
-              className="service-image-content"
+          <div className="service-item" key={index} id={`item-${index}`}>
+            {index % 2 !== 0 && isClient && screenWidth > 1050 ? (
+              <img
+                src={service.image}
+                alt={`${service.title} image`}
+                className="service-image-content"
+                data-aos="fade-right"
               />
             ) : null}
             <ServiceItem
@@ -112,17 +125,19 @@ export default function Service() {
               title={service.title}
               logoUrl={logoUrl}
               className="service-text-content"
-              imageUrl={serviceImg.src}
+              imageUrl={service.image}
               screenWidth={screenWidth}
+              animationSide={index % 2 !== 0 ? "left" : "right"}
             />
-            {(index % 2 === 0 && isClient && screenWidth > 1050) ? (
-              <Image
-              src={serviceImg}
-              alt={`${service.title} image`}
-              className="service-image-content"
+            {index % 2 === 0 && isClient && screenWidth > 1050 ? (
+              <img
+                src={service.image}
+                alt={`${service.title} image`}
+                className="service-image-content"
+                data-aos="fade-left"
               />
             ) : null}
-            </div>
+          </div>
         ))}
       </section>
     </main>

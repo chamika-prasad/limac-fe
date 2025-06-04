@@ -1,5 +1,9 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
 import { Typography } from "@/components/atoms/Typography";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import "./serviceItem.scss";
 
 interface IServiceItemProps {
@@ -9,6 +13,7 @@ interface IServiceItemProps {
   className?: string;
   imageUrl?: string;
   screenWidth: number;
+  animationSide: "left" | "right";
 }
 
 export const ServiceItem = ({
@@ -18,19 +23,28 @@ export const ServiceItem = ({
   logoUrl,
   className,
   imageUrl,
+  animationSide,
 }: IServiceItemProps) => {
-  return imageUrl && screenWidth <= 1050 ? (
+  const [width, setWidth] = useState<number>(0);
+
+  useEffect(() => {
+    // Set isClient to true once component mounts (client-side only)
+    setWidth(screenWidth);
+  }, [screenWidth]);
+
+  return imageUrl && width <= 1050 ? (
     <div
       className={`service-item-wrapper ${className ? className : ""}`}
       style={{
         background: `
-          linear-gradient(rgba(11, 26, 55, 0.9), rgba(11, 26, 55, 0.9)),
+          linear-gradient(rgba(11, 26, 55, 0.7), rgba(11, 26, 55, 0.7)),
           url(${imageUrl})
         `,
         backgroundSize: "cover",
         backgroundPosition: "center",
         display: "block",
       }}
+      data-aos={`fade-${animationSide}`}
     >
       <div className="logo-topic-wrapper">
         {/* <div className="logo-container"> */}
@@ -60,7 +74,10 @@ export const ServiceItem = ({
       </div>
     </div>
   ) : (
-    <div className={`service-item-wrapper ${className ? className : ""}`}>
+    <div
+      className={`service-item-wrapper ${className ? className : ""}`}
+      data-aos={`fade-${animationSide}`}
+    >
       <div className="logo-topic-wrapper">
         {/* <div className="logo-container"> */}
         {/* eslint-disable-next-line @next/next/no-img-element */}

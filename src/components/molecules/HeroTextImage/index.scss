@@ -49,6 +49,10 @@
       max-width: 700px;
       font-size: 64px;
       text-align: center;
+
+      @media screen and (max-width: 500px) {
+        font-size: 48px;
+      }
     }
 
     .hero-description {
