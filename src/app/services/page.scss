@@ -7,7 +7,7 @@
     rgba(87, 86, 86, 0.78) 95%
   );
 
-  padding: 50px 50px;
+  padding: 50px 0px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -19,15 +19,54 @@
   .service-description {
     color: $color-dark-gray;
     text-align: justify;
+
+    max-width: 1200px;
+    box-sizing: border-box;
+
+    width: 100%;
+    height: fit-content;
+
+    @media screen and (max-width: 1220px) {
+      padding-left: 50px;
+      padding-right: 50px;
+    }
+
+    @media screen and (max-width: 768px) {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+
+    @media screen and (max-width: 500px) {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
   }
 
   .services-list {
     display: flex;
     flex-direction: column;
-    
+
+    max-width: 1200px;
+    box-sizing: border-box;
+
     width: 100%;
     height: fit-content;
     gap: 30px;
+
+    @media screen and (max-width: 1220px) {
+      padding-left: 50px;
+      padding-right: 50px;
+    }
+
+    @media screen and (max-width: 768px) {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+
+    @media screen and (max-width: 500px) {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
 
     .service-item {
       width: 100%;
@@ -43,6 +82,11 @@
       }
 
       .service-image-content {
+        width: 30%;
+        max-width: 374px;
+        min-width: 245px;
+        height: auto;
+        max-height: 307px;
       }
     }
   }
