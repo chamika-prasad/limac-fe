@@ -8,6 +8,8 @@ import {
 import { Header } from "@/components/molecules/Header";
 import { Footer } from "@/components/molecules/Footer";
 import classNames from "classnames";
+import { AOSInit } from "@/utils/aos";
+import 'react-tooltip/dist/react-tooltip.css'
 import "./globals.css";
 
 // Define Inter fonts
@@ -80,6 +82,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <AOSInit/>
       <Header />
       <body
         className={classNames(

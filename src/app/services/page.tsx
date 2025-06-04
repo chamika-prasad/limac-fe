@@ -4,8 +4,8 @@ import React, { useEffect, useState } from "react";
 import { HeroTextImage } from "@/components/molecules/HeroTextImage";
 import { Typography } from "@/components/atoms/Typography";
 import { ServiceItem } from "@/components/molecules/Card/serviceItem";
-import AOS from "aos";
-import "aos/dist/aos.css";
+// import AOS from "aos";
+// import "aos/dist/aos.css";
 import "./page.scss";
 
 export default function Service() {
@@ -77,9 +77,9 @@ export default function Service() {
 
   useEffect(() => {
     // Initialize AOS only on client side
-    AOS.init({
-      duration: 1200,
-    });
+    // AOS.init({
+    //   duration: 1200,
+    // });
     
     // Set isClient to true once component mounts (client-side only)
     setIsClient(true);

@@ -7,7 +7,7 @@
     rgba(87, 86, 86, 0.78) 95%
   );
 
-  padding: 50px 50px;
+  padding: 50px 0px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -19,14 +19,55 @@
   .projects-description {
     color: $color-dark-gray;
     text-align: justify;
+
+    max-width: 1200px;
+    box-sizing: border-box;
+
+    width: 100%;
+    height: fit-content;
+
+    @media screen and (max-width: 1220px) {
+      padding-left: 50px;
+      padding-right: 50px;
+    }
+
+    @media screen and (max-width: 768px) {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+
+    @media screen and (max-width: 500px) {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
   }
 
   .projects-list {
     width: 100%;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-bottom: 4rem;
+    // display: grid;
+    // grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    // gap: 2rem;
+    // margin-bottom: 4rem;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    box-sizing: border-box;
+    height: fit-content;
+
+    @media screen and (max-width: 1220px) {
+      padding-left: 50px;
+      padding-right: 50px;
+    }
+
+    @media screen and (max-width: 768px) {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+
+    @media screen and (max-width: 500px) {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
 
     .project-holder {
       display: flex;
@@ -37,5 +78,13 @@
         // width: 100%;
       }
     }
+  }
+
+  .justify-start{
+    gap: 20px;
+    justify-content: start;
+  }
+  .justify-space-between{
+    justify-content: space-between;
   }
 }
