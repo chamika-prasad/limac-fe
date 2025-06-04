@@ -7,7 +7,6 @@ import { Button } from "@/components/atoms/Button";
 import homeImage2 from "@/assets/images/home_02.jpg";
 import Image from "next/image";
 import ImageSlider from "@/components/organisams/ImageSlider";
-import PageLoader from "@/components/organisams/PageLoader";
 import Carousel from "@/components/molecules/carousel";
 import { Client } from "@/types";
 import ServiceCarousel from "@/components/molecules/ServiceCarousel";
@@ -96,7 +95,7 @@ export default function Home() {
   return (
     <ParallaxProvider>
       <main className="home-wrapper">
-        <PageLoader/>
+        {/* <PageLoader/> */}
         <ImageSlider />
 
         <section className="clients">

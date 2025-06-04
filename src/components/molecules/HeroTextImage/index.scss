@@ -39,6 +39,11 @@
     justify-content: center;
     gap: 20px;
 
+    @media screen and (max-width: 700px) {
+      width: 80%;
+    }
+
+
     .hero-topic {
       color: $color-white;
       max-width: 700px;

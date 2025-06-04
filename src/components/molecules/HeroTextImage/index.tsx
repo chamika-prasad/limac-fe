@@ -6,7 +6,7 @@ interface IHeroTextImageProps {
   imageUrl: string;
   altText?: string;
   topic: string;
-  description?: string;
+  description?: string | React.ReactNode;
 }
 
 export const HeroTextImage = ({
