@@ -5,13 +5,13 @@ import React from "react";
 interface IServiceCardProps {
   title: string;
   items: string[];
-  key: number;
+  serviceCardKey: number;
   logo: string;
 }
 
-export const ServiceCard = ({ title, items, key }: IServiceCardProps) => {
+export const ServiceCard = ({ title, items, serviceCardKey }: IServiceCardProps) => {
   return (
-    <div key={key} className="service-card">
+    <div key={serviceCardKey} className="service-card">
       <div className="title-icon-wrapper">
         <div className="icon-wrapper">
           {/* <img

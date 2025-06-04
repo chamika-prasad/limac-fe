@@ -130,8 +130,9 @@ export default function Home() {
                 <ServiceCard
                   title={service.title}
                   items={service.items}
-                  key={index}
+                  serviceCardKey={index}
                   logo={service.logo}
+                  key={index}
                 />
               ))}
             </ServiceCarousel>
