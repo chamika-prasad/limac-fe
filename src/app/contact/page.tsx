@@ -180,15 +180,15 @@ export default function About() {
                   label={
                     <>
                       <span className="custom-weight">
-                        +94 70 631 5212 (S.J Pathirana)
+                        +94 70 631 5212 (Pathirana)
                       </span>
                       <br />{" "}
                       <span className="custom-weight">
-                        +94 71 713 1416 (P.C Kalubowila)
+                        +94 71 713 1416 (Kalubowila)
                       </span>
                       <br />{" "}
                       <span className="custom-weight">
-                        +94 70 631 5211 (D.R.U.V Dasanayaka )
+                        +94 70 631 5211 (Dasanayaka )
                       </span>
                     </>
                   }
