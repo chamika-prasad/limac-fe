@@ -12,8 +12,7 @@ const Carousel = ({ children }: CarouselProps) => {
 
   const updateItemsPerSlide = () => {
     const width = window.innerWidth;
-    if (width >= 1920) setItemsPerSlide(4);
-    else if (width >= 1280) setItemsPerSlide(3);
+    if (width >= 1280) setItemsPerSlide(3);
     else if (width >= 760) setItemsPerSlide(2);
     else setItemsPerSlide(1);
   };
@@ -56,9 +55,6 @@ const Carousel = ({ children }: CarouselProps) => {
         >
           &lt;
         </button>
-        //   <button className="carousel-arrow carousel-left" onClick={() => goToSlide(currentSlide - 1)}>
-        //   &#10094;
-        // </button>
       )}
 
       <div className="carousel-viewport">
@@ -86,10 +82,6 @@ const Carousel = ({ children }: CarouselProps) => {
       </div>
 
       {totalSlides > 1 && (
-        // <button className="carousel-arrow carousel-right" onClick={() => goToSlide(currentSlide + 1)}>
-        //   &#10095;
-        // </button>
-
         <button
           className={`carousel-button next-button`}
           onClick={() => goToSlide(currentSlide + 1)}

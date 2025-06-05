@@ -6,20 +6,23 @@ interface IServiceCardProps {
   title: string;
   items: string[];
   serviceCardKey: number;
-  logo: string;
 }
 
-export const ServiceCard = ({ title, items, serviceCardKey }: IServiceCardProps) => {
+export const ServiceCard = ({
+  title,
+  items,
+  serviceCardKey,
+}: IServiceCardProps) => {
   return (
     <div key={serviceCardKey} className="service-card">
       <div className="title-icon-wrapper">
-        <div className="icon-wrapper">
-          {/* <img
-        src={clientImage}
-        alt={`${clientName}-logo`}
-        className="client-logo"
-      /> */}
-        </div>
+        {/* <div className="icon-wrapper">
+          <img
+            src="assets/images/building_icon.png"
+            alt={`service-${title}`}
+            className="client-logo"
+          />
+        </div> */}
         <Typography
           variant="h3"
           label={title}

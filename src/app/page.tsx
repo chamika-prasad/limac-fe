@@ -8,89 +8,17 @@ import homeImage2 from "@/assets/images/home_02.jpg";
 import Image from "next/image";
 import ImageSlider from "@/components/organisams/ImageSlider";
 import Carousel from "@/components/molecules/carousel";
-import { Client } from "@/types";
 import ServiceCarousel from "@/components/molecules/ServiceCarousel";
 import { ParallaxProvider, Parallax } from "react-scroll-parallax";
 import "./page.scss";
-
-const clients: Client[] = [
-  { name: "SPARK", logo: "assets/images/spark.png" },
-  { name: "LOGAZ", logo: "assets/images/logaz.png" },
-  { name: "SPONA", logo: "assets/images/spona.png" },
-  { name: "OLLA", logo: "assets/images/olla.png" },
-  { name: "SPONA", logo: "assets/images/spona.png" },
-  { name: "OLLA", logo: "assets/images/olla.png" },
-  { name: "LOGAZ", logo: "assets/images/logaz.png" },
-  // { name: "LOGAZ", logo: "assets/images/logaz.png" },
-];
-
-const services = [
-  {
-    title: "Design & Build Solution",
-    items: [
-      "Lorem Ipsum",
-      "has been the",
-      "industry's standard",
-      "Lorem Ipsum",
-      "has been the",
-      "industry's standard",
-    ],
-    logo: "assets/images/design_icon.png",
-  },
-  {
-    title: "Building Constructions",
-    items: [
-      "Lorem Ipsum",
-      "has been the",
-      "industry's standard",
-      "Lorem Ipsum",
-      "has been the",
-      "industry's standard",
-    ],
-    logo: "assets/images/building_icon.png",
-  },
-  {
-    title: "Project Management",
-    items: [
-      "Lorem Ipsum",
-      "has been the",
-      "industry's standard",
-      "Lorem Ipsum",
-      "has been the",
-      "industry's standard",
-    ],
-    logo: "assets/images/project_icon.png",
-  },
-];
-
-const projects = [
-  {
-    title: "Canadian Construction Branches",
-    description:
-      "We'll Supply You With Materials To Create Your Dream Property From Foundation To Finish. Call To Get Started!",
-    image: "assets/images/recent_01.png",
-  },
-  {
-    title: "Canadian Construction Branches",
-    description:
-      "We'll Supply You With Materials To Create Your Dream Property From Foundation To Finish. Call To Get Started!",
-    image: "assets/images/recent_01.png",
-  },
-  {
-    title: "Australian Construction Branches",
-    description:
-      "We'll Supply You With Materials To Create Your Dream Property From Foundation To Finish. Call To Get Started!",
-    image: "assets/images/recent_02.png",
-  },
-  {
-    title: "Brazilian Construction Branches",
-    description:
-      "We'll Supply You With Materials To Create Your Dream Property From Foundation To Finish. Call To Get Started!",
-    image: "assets/images/recent_03.png",
-  },
-];
+import { projects } from "@/data/projectData";
+import classNames from "classnames";
+import { useScreenSize } from "@/utils/useScreenSize";
+import { clients } from "@/data/clientdata";
+import { services } from "@/data/serviceData";
 
 export default function Home() {
+  const screenSize = useScreenSize();
   const handleClick = () => {};
   return (
     <ParallaxProvider>
@@ -121,7 +49,7 @@ export default function Home() {
 
             <Typography
               variant="p"
-              label="Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+              label="Transform your vision into reality with our comprehensive construction services. From initial concept to final completion, we deliver innovative solutions tailored to your unique needs. Our experienced team combines cutting-edge design principles with proven construction expertise to ensure your project exceeds expectations while staying on time and within budget"
               styles="description poppins-regular"
             />
 
@@ -131,7 +59,6 @@ export default function Home() {
                   title={service.title}
                   items={service.items}
                   serviceCardKey={index}
-                  logo={service.logo}
                   key={index}
                 />
               ))}
@@ -148,7 +75,7 @@ export default function Home() {
             />
             <Typography
               variant="p"
-              label="Lorem ipsum has been the industry's standard dummy text ever since the 1500s"
+              label="Whether it's residential, commercial, or industrial, we bring your vision to life with expert craftsmanship and unwavering commitment."
               styles="description poppins-regular"
             />
           </div>
@@ -177,21 +104,30 @@ export default function Home() {
 
             <Typography
               variant="p"
-              label="Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+              label="Discover some of our latest construction and renovation projects that reflect our commitment to quality, innovation, and client satisfaction."
               styles="description poppins-regular"
             />
 
-            <div className="grid">
+            <div
+              className={classNames(
+                "recent-projects",
+                (projects.length <= 2 && screenSize.width > 700) ||
+                  screenSize.width <= 700
+                  ? "justify-center"
+                  : "justify-space-between"
+              )}
+            >
               {projects.map((project, index) => (
-                <div className="project-holder" key={index}>
-                  <HomeRecentProjectCard
-                    Key={index}
-                    projectName={project.title}
-                    projectDescription={project.description}
-                    projectImage={project.image}
-                    className="project-card"
-                  />
-                </div>
+                // <div className="project-holder" key={index}>
+                <HomeRecentProjectCard
+                  Key={index}
+                  projectName={project.name}
+                  projectDescription={project.des1}
+                  projectImage={project.images[0].src}
+                  id={project.id}
+                  className="project-card"
+                />
+                // </div>
               ))}
             </div>
 

@@ -23,7 +23,9 @@ export const HeroTextImage = ({
         <Typography
           variant="h1"
           label={topic}
-          styles="hero-topic poppins-bold"
+          styles={`hero-topic poppins-bold ${
+            topic.length > 20 ? "hero-topic-48" : "hero-topic-64"
+          }`}
         />
         {description && (
           <Typography

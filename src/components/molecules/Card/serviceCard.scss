@@ -14,7 +14,7 @@
   .title-icon-wrapper {
     display: flex;
     align-items: center;
-    justify-content: center;
+    // justify-content: center;
     gap: 13px;
   }
 
@@ -33,25 +33,51 @@
   }
 
   .list {
-    list-style: none;
+    // list-style: none;
     padding: 0;
   }
 
   .list-item {
     margin-bottom: 0.8rem;
     position: relative;
-    padding-left: 1.5rem;
+    margin-left: 1.5rem;
+  }
 
-    // &::before {
-    //   content: "•";
-    //   position: absolute;
-    //   left: 0;
-    //   color: $color-white;
-    // }
+  .list-item::marker{
+    color: white;
   }
 
   .item-text {
     color: $color-white;
     margin: 0;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 380px;
+  }
+
+  @media screen and (max-width: 1280px) {
+    width: 500px;
+  }
+
+  @media screen and (max-width: 1150px) {
+    width: 450px;
+  }
+
+  @media screen and (max-width: 1040px) {
+    width: 400px;
+  }
+
+  @media screen and (max-width: 930px) {
+    width: 350px;
+  }
+
+  @media screen and (max-width: 820px) {
+    width: 330px;
+  }
+
+  @media screen and (max-width: 760px) {
+    width: 100%;
+    max-width: 450px;
   }
 }

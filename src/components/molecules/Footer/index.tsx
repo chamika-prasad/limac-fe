@@ -85,7 +85,7 @@ export const Footer = () => {
         <div className="copyright">
           <Typography
             variant="p"
-            label="Copyright Limec Development (pvt) Ltd"
+            label="Copyright Limac Development (pvt) Ltd"
             styles="copyrightText roboto-semi-bold"
           />
         </div>

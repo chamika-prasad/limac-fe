@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Typography } from "@/components/atoms/Typography";
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/atoms/Button";
 import readMoreSvg from "@/assets/images/read_more.png";
 import Image from "next/image";
@@ -13,11 +14,9 @@ interface IHomeRecentProjectCardProps {
   Key: number;
   projectName: string;
   projectDescription: string;
-  // projectDescription2: string;
   projectImage: string;
   className?: string;
-  // handleMouseEnter: (e: React.MouseEvent, text: string) => void;
-  // handleMouseLeave: (e: React.MouseEvent) => void;
+  id: string;
 }
 
 export const HomeRecentProjectCard = ({
@@ -26,28 +25,33 @@ export const HomeRecentProjectCard = ({
   projectDescription,
   projectImage,
   className = "",
-  // projectDescription2,
-  // handleMouseEnter,
-  // handleMouseLeave,
+  id,
 }: IHomeRecentProjectCardProps) => {
   const screenSize = useScreenSize();
+  const router = useRouter();
+
+  const handleCardClick = () => {
+    router.push(`/project/${id}`);
+  };
+
   return screenSize.width > 700 ? (
     <div
       key={Key}
       className={`recent-project-card-wrapper ${className}`}
       data-aos="zoom-in"
-      // onMouseEnter={(e) => {
-      //   handleMouseEnter(e, projectDescription2);
-      // }}
-      // onMouseLeave={handleMouseLeave}
-      // data-tooltip-id="project-tooltip"
+      onClick={handleCardClick}
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={projectImage}
-        alt={`${projectName}-img`}
-        className="project-image"
-      />
+      <div key={`project-${Key}`} className="image-container">
+        <Image
+          src={projectImage}
+          alt={`${projectName}-img`}
+          width={500}
+          height={500}
+          className="image"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        />
+      </div>
 
       <Typography
         variant="h6"
@@ -95,8 +99,8 @@ export const HomeRecentProjectCard = ({
         display: "block",
       }}
       data-tooltip-id="project-tooltip"
+      onClick={handleCardClick}
     >
-
       <Typography
         variant="h6"
         label={projectName}
