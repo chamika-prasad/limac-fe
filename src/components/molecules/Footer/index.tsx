@@ -12,6 +12,11 @@ import Image from "next/image";
 import "./index.scss";
 
 export const Footer = () => {
+  const whatsappLink = `https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}`;
+  const phoneLink = `tel:${process.env.NEXT_PUBLIC_PHONE_NUMBER}`;
+  const fbLink = process.env.NEXT_PUBLIC_FACEBOOK_URL;
+  // const instaLink = process.env.NEXT_PUBLIC_INSTAGRAM_URL;
+
   return (
     <footer className="footer">
       <Image
@@ -66,13 +71,29 @@ export const Footer = () => {
 
         <div className="social-container">
           <div className="icon-container">
-            <Image src={callIcon} alt="call" priority className="" />
+            <a href={phoneLink} className="social-link">
+              <Image src={callIcon} alt="call" priority className="" />
+            </a>
           </div>
           <div className="icon-container">
-            <Image src={fbIcon} alt="fb" priority className="" />
+            <a
+              href={fbLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-link"
+            >
+              <Image src={fbIcon} alt="fb" priority className="" />
+            </a>
           </div>
           <div className="icon-container">
-            <Image src={whatsappIcon} alt="whatsapp" priority className="" />
+            <a
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-link"
+            >
+              <Image src={whatsappIcon} alt="whatsapp" priority className="" />
+            </a>
           </div>
           <div className="icon-container">
             <Image src={instaIcon} alt="instagram" priority className="" />
