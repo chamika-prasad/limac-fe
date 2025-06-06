@@ -87,7 +87,7 @@ const ImageSlider: React.FC = () => {
         "“Whether you’re planning your next luxury development or seeking a trusted construction partner, we’re here to bring your vision to life. Reach out to us”",
     },
     {
-      image: "/assets/images/home_bg_01.png",
+      image: "/assets/images/home_bg_01.jpg",
       title: "Welcome",
       description:
         "“From Iconic Residences To Landmark Commercial Spaces, We Deliver Elegance Through Engineering.”",
@@ -118,19 +118,22 @@ const ImageSlider: React.FC = () => {
           >
             <div className="content">
               <Typography
-                variant="h1"
+                variant={ item.title === "Welcome" ?"p":"h1"}
                 label={item.title}
-                styles="title inter-extra-bold"
+                styles={`title merriweather-semi-bold ${
+                  item.title === "Welcome" ? "welcome-title" : "defaul-title"
+                }`}
               />
               <Typography
-                variant="p"
+                variant={ item.title === "Welcome" ?"h1":"p"}
                 label="LIMAC DEVELOPMENT (PVT) LTD"
-                styles="name poppins-medium"
+                styles={`name merriweather-regular ${
+                  item.title === "Welcome" ? "welcome-name" : "default-name"}`}
               />
               <Typography
                 variant="p"
                 label={item.description}
-                styles="des poppins-regular"
+                styles="des poppins-extra-bold"
               />
               <div className="btn">
                 <Button

@@ -10,6 +10,14 @@ body {
   margin: 0;
 }
 
+.merriweather-semi-bold {
+  font-family: var(--font-merriweather-semi-bold), sans-serif;
+}
+
+.merriweather-regular {
+  font-family: var(--font-merriweather-regular), sans-serif;
+}
+
 .inter-extra-bold {
   font-family: var(--font-inter-extra-bold), sans-serif;
 }
@@ -32,6 +40,10 @@ body {
 
 .poppins-bold {
   font-family: var(--font-poppins-bold), sans-serif;
+}
+
+.poppins-extra-bold {
+  font-family: var(--font-poppins-extra-bold), sans-serif;
 }
 
 .poppins-light {

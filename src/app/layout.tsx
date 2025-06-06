@@ -4,6 +4,7 @@ import {
   Poppins,
   Roboto,
   Work_Sans,
+  Merriweather
 } from "next/font/google";
 import { Header } from "@/components/molecules/Header";
 import { Footer } from "@/components/molecules/Footer";
@@ -11,6 +12,19 @@ import classNames from "classnames";
 import { AOSInit } from "@/utils/aos";
 import 'react-tooltip/dist/react-tooltip.css'
 import "./globals.css";
+
+// Define Inter fonts
+const merriweatherSemiBold = Merriweather({
+  subsets: ["latin"],
+  weight: "700",
+  variable: "--font-merriweather-semi-bold",
+});
+
+const merriweatherRegular= Merriweather({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-merriweather-regular",
+});
 
 // Define Inter fonts
 const interExtraBold = Inter({
@@ -48,6 +62,12 @@ const poppinsBold = Poppins({
   subsets: ["latin"],
   weight: "700",
   variable: "--font-poppins-bold",
+});
+
+const poppinsExtraBold = Poppins({
+  subsets: ["latin"],
+  weight: "800",
+  variable: "--font-poppins-extra-bold",
 });
 
 const poppinsLight = Poppins({
@@ -91,6 +111,9 @@ export default function RootLayout({
           poppinsSemiBold.variable,
           poppinsBold.variable,
           poppinsLight.variable,
+          poppinsExtraBold.variable,
+          merriweatherSemiBold.variable,
+          merriweatherRegular.variable,
           robotoSemiBold.variable,
           workSansRegular.variable,
           interExtraBold.variable,
