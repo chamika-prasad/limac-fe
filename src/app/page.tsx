@@ -4,7 +4,8 @@ import { Typography } from "@/components/atoms/Typography";
 import { HomeRecentProjectCard } from "@/components/molecules/Card/homeRecentProjectCard";
 import { ServiceCard } from "@/components/molecules/Card/serviceCard";
 import { Button } from "@/components/atoms/Button";
-import homeImage2 from "@/assets/images/home_02.jpg";
+// import homeImage2 from "@/assets/images/home_02.jpg";
+import buildSolutionImg from "@/assets/images/build_solutions.jpg";
 import Image from "next/image";
 import ImageSlider from "@/components/organisams/ImageSlider";
 import Carousel from "@/components/molecules/carousel";
@@ -59,6 +60,7 @@ export default function Home() {
                   title={service.title}
                   items={service.items}
                   serviceCardKey={index}
+                  icon={service.icon}
                   key={index}
                 />
               ))}
@@ -84,7 +86,7 @@ export default function Home() {
           <div className="background-image">
             <Parallax speed={-15}>
               <Image
-                src={homeImage2}
+                src={buildSolutionImg}
                 alt="Construction site"
                 quality={100}
                 className="image"
@@ -99,7 +101,7 @@ export default function Home() {
             <Typography
               variant="h2"
               label="Recent Projects"
-              styles="title title-common poppins-semi-bold"
+              styles="title title-common merriweather-semi-bold"
             />
 
             <Typography
@@ -126,6 +128,7 @@ export default function Home() {
                   projectImage={project.images[0].src}
                   id={project.id}
                   className="project-card"
+                  location={project.location}
                 />
                 // </div>
               ))}

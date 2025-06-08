@@ -18,12 +18,16 @@ export const HeroTextImage = ({
   return (
     <div className="hero-text-img-wrapper">
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={imageUrl} alt={altText} className="image" />
+      <div className="image-wrapper">
+        <img src={imageUrl} alt={altText} className="image" />
+        <div className="hero-img-overlay" />
+      </div>
+
       <div className="hero-topic-description-wrapper">
         <Typography
           variant="h1"
           label={topic}
-          styles={`hero-topic poppins-bold ${
+          styles={`hero-topic merriweather-semi-bold ${
             topic.length > 20 ? "hero-topic-48" : "hero-topic-64"
           }`}
         />

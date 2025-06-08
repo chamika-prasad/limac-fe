@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { Typography } from "@/components/atoms/Typography";
+import ServiceIcon from "../ServiceIcon";
 import "./serviceItem.scss";
 
 interface IServiceItemProps {
@@ -46,7 +47,7 @@ export const ServiceItem = ({
     >
       <div className="logo-topic-wrapper">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={logoUrl} alt="" />
+        {/* <img src={logoUrl} alt="" /> */}
         {/* </div> */}
         <Typography
           variant="h4"
@@ -78,7 +79,7 @@ export const ServiceItem = ({
       <div className="logo-topic-wrapper">
         {/* <div className="logo-container"> */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={logoUrl} alt="" />
+        <ServiceIcon iconSrc={logoUrl} title={title}/>
         {/* </div> */}
         <Typography
           variant="h4"

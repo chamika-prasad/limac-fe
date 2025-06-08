@@ -13,4 +13,5 @@ export interface ProjectInfoObject {
   des1: string;
   des2: string;
   images: ImageData[];
+  location: string;
 }

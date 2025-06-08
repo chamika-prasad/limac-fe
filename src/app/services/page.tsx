@@ -4,8 +4,8 @@ import React, { useEffect, useState } from "react";
 import { HeroTextImage } from "@/components/molecules/HeroTextImage";
 import { Typography } from "@/components/atoms/Typography";
 import { ServiceItem } from "@/components/molecules/Card/serviceItem";
-import "./page.scss";
 import { services } from "@/data/serviceData";
+import "./page.scss";
 
 export default function Service() {
   {
@@ -15,7 +15,6 @@ export default function Service() {
     typeof window !== "undefined" ? window.innerWidth : 0
   );
   const [isClient, setIsClient] = useState(false);
-  const logoUrl = "assets/images/serviceIcon.png";
 
   useEffect(() => {
     // Set isClient to true once component mounts (client-side only)
@@ -38,7 +37,7 @@ export default function Service() {
   return (
     <main className="service-page-wrapper">
       <HeroTextImage
-        imageUrl="assets/images/service.png"
+        imageUrl="assets/images/service.jpg"
         topic="Our Services"
         description="We specialize in a wide range of construction and engineering services, from residential and commercial buildings to complex infrastructure projects. With a focus on quality and innovation, we deliver solutions tailored to our clients’ needs."
       />
@@ -62,7 +61,7 @@ export default function Service() {
             <ServiceItem
               items={service.items}
               title={service.title}
-              logoUrl={logoUrl}
+              logoUrl={service.icon}
               className="service-text-content"
               imageUrl={service.image}
               screenWidth={screenWidth}

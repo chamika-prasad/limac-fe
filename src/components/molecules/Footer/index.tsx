@@ -4,19 +4,15 @@ import { Typography } from "@/components/atoms/Typography";
 import footerImg1 from "@/assets/images/footer_1.png";
 import footerImg2 from "@/assets/images/footer_2.png";
 import footerLogo from "@/assets/images/footer_logo.png";
-import callIcon from "@/assets/images/call.png";
-import fbIcon from "@/assets/images/facebook.png";
-import whatsappIcon from "@/assets/images/whatsapp.png";
-import instaIcon from "@/assets/images/insta.png";
+import callIcon from "@/assets/images/call_new.png";
+import fbIcon from "@/assets/images/facebook_new.png";
+import whatsappIcon from "@/assets/images/whatsapp_new.png";
+import instaIcon from "@/assets/images/insta_new.png";
+import { fbLink, instaLink, phoneLink, whatsappLink } from "@/utils/constrants";
 import Image from "next/image";
 import "./index.scss";
 
 export const Footer = () => {
-  const whatsappLink = `https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}`;
-  const phoneLink = `tel:${process.env.NEXT_PUBLIC_PHONE_NUMBER}`;
-  const fbLink = process.env.NEXT_PUBLIC_FACEBOOK_URL;
-  // const instaLink = process.env.NEXT_PUBLIC_INSTAGRAM_URL;
-
   return (
     <footer className="footer">
       <Image
@@ -72,7 +68,12 @@ export const Footer = () => {
         <div className="social-container">
           <div className="icon-container">
             <a href={phoneLink} className="social-link">
-              <Image src={callIcon} alt="call" priority className="" />
+              <Image
+                src={callIcon}
+                alt="call"
+                priority
+                className="social-icon"
+              />
             </a>
           </div>
           <div className="icon-container">
@@ -82,7 +83,7 @@ export const Footer = () => {
               rel="noopener noreferrer"
               className="social-link"
             >
-              <Image src={fbIcon} alt="fb" priority className="" />
+              <Image src={fbIcon} alt="fb" priority className="social-icon" />
             </a>
           </div>
           <div className="icon-container">
@@ -92,11 +93,28 @@ export const Footer = () => {
               rel="noopener noreferrer"
               className="social-link"
             >
-              <Image src={whatsappIcon} alt="whatsapp" priority className="" />
+              <Image
+                src={whatsappIcon}
+                alt="whatsapp"
+                priority
+                className="social-icon"
+              />
             </a>
           </div>
           <div className="icon-container">
-            <Image src={instaIcon} alt="instagram" priority className="" />
+            <a
+              href={instaLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-link"
+            >
+              <Image
+                src={instaIcon}
+                alt="instagram"
+                priority
+                className="social-icon"
+              />
+            </a>
           </div>
         </div>
 

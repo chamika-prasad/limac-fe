@@ -14,21 +14,20 @@
   .title-icon-wrapper {
     display: flex;
     align-items: center;
-    // justify-content: center;
+    justify-content: center;
     gap: 13px;
+    margin-bottom: 30px;
   }
 
   .icon-wrapper {
-    width: 63px;
-    height: 63px;
-    border-radius: 25%;
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .card-title {
     color: $color-white;
-    margin-bottom: 1.5rem;
-    position: relative;
-    padding-bottom: 0.5rem;
     font-size: 24px;
   }
 
@@ -43,7 +42,7 @@
     margin-left: 1.5rem;
   }
 
-  .list-item::marker{
+  .list-item::marker {
     color: white;
   }
 

@@ -3,8 +3,6 @@
 import React from "react";
 import { Typography } from "@/components/atoms/Typography";
 import { useRouter } from "next/navigation";
-import { Button } from "@/components/atoms/Button";
-import readMoreSvg from "@/assets/images/read_more.png";
 import Image from "next/image";
 import { useScreenSize } from "@/utils/useScreenSize";
 
@@ -17,6 +15,7 @@ interface IHomeRecentProjectCardProps {
   projectImage: string;
   className?: string;
   id: string;
+  location: string;
 }
 
 export const HomeRecentProjectCard = ({
@@ -26,6 +25,7 @@ export const HomeRecentProjectCard = ({
   projectImage,
   className = "",
   id,
+  location,
 }: IHomeRecentProjectCardProps) => {
   const screenSize = useScreenSize();
   const router = useRouter();
@@ -51,46 +51,33 @@ export const HomeRecentProjectCard = ({
           className="image"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
-      </div>
-
-      <Typography
-        variant="h6"
-        label={projectName}
-        styles="project-name poppins-semi-bold"
-      />
-      <Typography
-        variant="p"
-        label={projectDescription}
-        styles="project-description poppins-regular"
-      />
-      <Button
-        onClick={() => {
-          console.log("clicked");
-        }}
-        label={
-          <div className="read-more-wrapper">
+        <div className="overlay">
+          <div className="text">
+            <Typography
+              variant="h6"
+              label={projectName}
+              styles="project-name poppins-semi-bold"
+            />
             <Typography
               variant="p"
-              label="Read More"
-              styles="read-more-text poppins-regular"
+              label={location}
+              styles="project-description poppins-regular"
             />
-            <Image src={readMoreSvg} alt="read-more" className="read-more" />
           </div>
-        }
-        className="read-more-button"
-      />
+        </div>
+      </div>
     </div>
   ) : (
     <div
       key={Key}
-      className={`recent-project-card-wrapper ${className}`}
+      className={`recent-project-card-wrapper ${className} mobile`}
       data-aos="zoom-in"
       style={{
         background: `
           linear-gradient(
     to right,
-    rgba(255, 255, 255, 0.7) 20%,
-  rgba(255, 255, 255, 0.9) 95%
+    rgba(255, 255, 255, 0.3) 20%,
+  rgba(255, 255, 255, 0.5) 95%
   ),
           url(${projectImage})
         `,
@@ -104,28 +91,12 @@ export const HomeRecentProjectCard = ({
       <Typography
         variant="h6"
         label={projectName}
-        styles="project-name poppins-semi-bold"
+        styles="project-name merriweather-semi-bold"
       />
       <Typography
         variant="p"
         label={projectDescription}
         styles="project-description poppins-regular"
-      />
-      <Button
-        onClick={() => {
-          console.log("clicked");
-        }}
-        label={
-          <div className="read-more-wrapper">
-            <Typography
-              variant="p"
-              label="Read More"
-              styles="read-more-text poppins-regular"
-            />
-            <Image src={readMoreSvg} alt="read-more" className="read-more" />
-          </div>
-        }
-        className="read-more-button"
       />
     </div>
   );

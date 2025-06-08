@@ -1,0 +1,11 @@
+@import "./../../../styles/colors.scss";
+
+.service-icon {
+  width: 63px;
+  height: 63px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: $color-white;
+}

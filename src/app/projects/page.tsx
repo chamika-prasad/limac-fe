@@ -16,7 +16,7 @@ export default function Projects() {
   return (
     <main className="projects-page-wrapper">
       <HeroTextImage
-        imageUrl="assets/images/service.png"
+        imageUrl="assets/images/our_service.jpg"
         topic="Projects"
         description="Delivering integrated construction and engineering solutions with precision, innovation, and full project ownership—ensuring quality, efficiency, and lasting value from design through to completion."
       />
@@ -42,6 +42,7 @@ export default function Projects() {
             projectDescription={project.des1}
             projectImage={project.images[0].src}
             id={project.id}
+            location={project.location}
           />
         ))}
       </section>

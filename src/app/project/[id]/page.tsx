@@ -17,10 +17,12 @@ export default async function Project({
 
   return (
     <main className="project-page-wrapper">
-      <HeroTextImage
-        imageUrl="/assets/images/service.png"
-        topic={project?.name ? project?.name : ""}
-      />
+      {project ? (
+        <HeroTextImage
+          imageUrl={project.images[0].src}
+          topic={project?.name ? project?.name : ""}
+        />
+      ) : null}
 
       <div className="content-section">
         <div className="top-content">

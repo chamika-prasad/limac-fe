@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { HeroTextImage } from "@/components/molecules/HeroTextImage";
 import { Typography } from "@/components/atoms/Typography";
@@ -6,15 +8,9 @@ import callIcon from "@/assets/images/phone_solid.png";
 import emailIcon from "@/assets/images/email.png";
 import Image from "next/image";
 import "./page.scss";
+import ProgressBar from "@/components/molecules/ProgressBar";
 
 export default function About() {
-  // const images = [
-  //   "assets/images/rectangle_16.png",
-  //   "assets/images/rectangle_14.png",
-  //   "assets/images/rectangle_17.png",
-  //   "assets/images/rectangle_15.png",
-  // ];
-
   const unique = [
     "Design and Build",
     "Project Management",
@@ -185,13 +181,24 @@ export default function About() {
               />
               <div className="highlight-wrapper">
                 {chooseUs.map((item, index) => (
-                  <div className="highlight" key={index}>
-                    <div className="list-item"></div>
-                    <Typography
-                      variant="p"
-                      label={item}
-                      styles="list-item-text poppins-medium"
-                    />
+                  <div className="item-progress-container" key={index}>
+                    <div className="item-presentage-wrapper">
+                      <div className="highlight">
+                        <div className="list-item"></div>
+                        <Typography
+                          variant="p"
+                          label={item}
+                          styles="list-item-text poppins-medium"
+                        />
+                      </div>
+                      <Typography
+                        variant="p"
+                        label="100%"
+                        styles="list-item-text poppins-medium"
+                      />
+                    </div>
+
+                    <ProgressBar delay={index * 100} />
                   </div>
                 ))}
               </div>
@@ -230,7 +237,7 @@ export default function About() {
               <Image src={callIcon} alt="instagram" priority className="" />
               <Typography
                 variant="p"
-                label=": +94 70 631 5212 (S.J Pathirana), +94 71 713 1416 (P.C Kalubowila), +94 70 631 5211 (D.R.U.V Dasanayaka )"
+                label=": +94 70 631 5212 , +94 71 713 1416 , +94 70 631 5211"
                 styles="contact-detail-text poppins-regular"
               />
             </div>

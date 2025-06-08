@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { HeroTextImage } from "@/components/molecules/HeroTextImage";
+import { fbLink, instaLink, phoneLink, whatsappLink } from "@/utils/constrants";
 import { Typography } from "@/components/atoms/Typography";
 import { Input } from "@/components/atoms/Input";
 import { TextArea } from "@/components/atoms/TextArea";
@@ -11,12 +12,15 @@ import callIcon from "@/assets/images/phone_solid.png";
 import emailIcon from "@/assets/images/email.png";
 import Image from "next/image";
 import fbIcon from "@/assets/images/facebook.png";
-import linkedinIcon from "@/assets/images/linkedin.png";
 import instaIcon from "@/assets/images/insta.png";
+import whatsappIcon from "@/assets/images/whatsapp.png";
 import "./page.scss";
 
 export default function About() {
   const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [mobileNo, setMobileNo] = useState("");
+  const [message, setMessage] = useState("");
 
   return (
     <main className="contact-page-wrapper">
@@ -51,26 +55,26 @@ export default function About() {
                 className="contact-input input-custom poppins-regular"
               />
               <Input
-                value={name}
+                value={email}
                 onChange={(e) => {
-                  setName(e.target.value);
+                  setEmail(e.target.value);
                 }}
                 placeholder="Email"
                 className="contact-input input-custom poppins-bold"
               />
               <Input
-                value={name}
+                value={mobileNo}
                 onChange={(e) => {
-                  setName(e.target.value);
+                  setMobileNo(e.target.value);
                 }}
                 placeholder="Contact No"
                 className="contact-input input-custom poppins-bold"
               />
 
               <TextArea
-                value={name}
+                value={message}
                 onChange={(e) => {
-                  setName(e.target.value);
+                  setMessage(e.target.value);
                 }}
                 placeholder="Your Message Here"
                 className="contact-text-area text-area poppins-bold"
@@ -92,26 +96,49 @@ export default function About() {
               />
               <div className="social-container">
                 <div className="icon-container">
-                  <Image src={callIcon} alt="call" priority className="" />
+                  <a href={phoneLink} className="social-link">
+                    <Image src={callIcon} alt="call" priority className="" />
+                  </a>
                 </div>
                 <div className="icon-container">
-                  <Image src={fbIcon} alt="fb" priority className="" />
+                  <a
+                    href={fbLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="social-link"
+                  >
+                    <Image src={fbIcon} alt="fb" priority className="" />
+                  </a>
                 </div>
                 <div className="icon-container">
-                  <Image
-                    src={linkedinIcon}
-                    alt="linkedin"
-                    priority
-                    className=""
-                  />
+                  <a
+                    href={whatsappLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="social-link"
+                  >
+                    <Image
+                      src={whatsappIcon}
+                      alt="whatsapp"
+                      priority
+                      className=""
+                    />
+                  </a>
                 </div>
                 <div className="icon-container">
-                  <Image
-                    src={instaIcon}
-                    alt="instagram"
-                    priority
-                    className=""
-                  />
+                  <a
+                    href={instaLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="social-link"
+                  >
+                    <Image
+                      src={instaIcon}
+                      alt="instagram"
+                      priority
+                      className=""
+                    />
+                  </a>
                 </div>
               </div>
             </div>
@@ -179,17 +206,11 @@ export default function About() {
                   variant="p"
                   label={
                     <>
-                      <span className="custom-weight">
-                        +94 70 631 5212 (Pathirana)
-                      </span>
+                      <span className="custom-weight">+94 70 631 5212</span>
                       <br />{" "}
-                      <span className="custom-weight">
-                        +94 71 713 1416 (Kalubowila)
-                      </span>
+                      <span className="custom-weight">+94 71 713 1416</span>
                       <br />{" "}
-                      <span className="custom-weight">
-                        +94 70 631 5211 (Dasanayaka )
-                      </span>
+                      <span className="custom-weight">+94 70 631 5211</span>
                     </>
                   }
                   styles="contact-detail-text poppins-regular"

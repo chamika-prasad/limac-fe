@@ -1,4 +1,5 @@
 import { Typography } from "@/components/atoms/Typography";
+import ServiceIcon from "../ServiceIcon";
 import "./serviceCard.scss";
 import React from "react";
 
@@ -6,23 +7,22 @@ interface IServiceCardProps {
   title: string;
   items: string[];
   serviceCardKey: number;
+  icon: string;
 }
 
 export const ServiceCard = ({
   title,
   items,
   serviceCardKey,
+  icon
 }: IServiceCardProps) => {
   return (
     <div key={serviceCardKey} className="service-card">
       <div className="title-icon-wrapper">
-        {/* <div className="icon-wrapper">
-          <img
-            src="assets/images/building_icon.png"
-            alt={`service-${title}`}
-            className="client-logo"
-          />
-        </div> */}
+        <div className="icon-wrapper">
+          <ServiceIcon iconSrc={icon} title={title} />
+        </div>
+
         <Typography
           variant="h3"
           label={title}
