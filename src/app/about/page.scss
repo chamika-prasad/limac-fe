@@ -151,6 +151,25 @@
             gap: 10px;
           }
 
+          .highlight {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            justify-content: flex-start;
+            color: $color-black;
+
+            .list-item {
+              height: 8px;
+              width: 8px;
+              border-radius: 50%;
+              background-color: $color-black;
+            }
+
+            .list-item-text {
+              color: $color-black;
+            }
+          }
+
           .item-progress-container {
             width: 100%;
             display: flex;
@@ -162,24 +181,7 @@
               align-items: center;
               justify-content: space-between;
               
-              .highlight {
-                display: flex;
-                gap: 10px;
-                align-items: center;
-                justify-content: flex-start;
-                color: $color-black;
 
-                .list-item {
-                  height: 8px;
-                  width: 8px;
-                  border-radius: 50%;
-                  background-color: $color-black;
-                }
-
-                .list-item-text {
-                  color: $color-black;
-                }
-              }
             }
           }
         }
