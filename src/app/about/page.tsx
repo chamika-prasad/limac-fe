@@ -7,8 +7,8 @@ import mapIcon from "@/assets/images/map.png";
 import callIcon from "@/assets/images/phone_solid.png";
 import emailIcon from "@/assets/images/email.png";
 import Image from "next/image";
-import "./page.scss";
 import ProgressBar from "@/components/molecules/ProgressBar";
+import "./page.scss";
 
 export default function About() {
   const unique = [
@@ -40,7 +40,7 @@ export default function About() {
   return (
     <main className="about-page-wrapper">
       <HeroTextImage
-        imageUrl="assets/images/about.png"
+        imageUrl="assets/images/about.jpg"
         topic="About us"
         description={
           <>
