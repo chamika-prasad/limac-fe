@@ -139,7 +139,7 @@ const NewImageSlider: React.FC<ImageSliderProps> = ({
                       images[(currentIndex + 1) % images.length]
                     })`,
                     backgroundPosition: `center ${bgPosition}%`,
-                    backgroundSize: `100% ${rowCount * 100}%`,
+                    backgroundSize: `100% ${rowCount * 100 + 0.2}%`,
                   }}
                 />
               </motion.div>

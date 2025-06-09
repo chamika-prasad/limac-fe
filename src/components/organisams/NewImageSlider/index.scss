@@ -3,10 +3,7 @@
 .slider-container {
   position: relative;
   width: 100%;
-  // max-width: 1200px;
-  // margin: 0 auto;
-  background: #000;
-  border-radius: 8px;
+  background: $color-black;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
@@ -17,6 +14,15 @@
   height: 100vh;
   perspective: 1000px;
   overflow: hidden;
+  aspect-ratio: 16 / 9;
+
+  @media (max-width: 768px) {
+    aspect-ratio: 4 / 3;
+  }
+
+  @media (max-width: 480px) {
+    aspect-ratio: 3 / 4;
+  }
 }
 
 .slider-row {
@@ -143,10 +149,10 @@
   display: block;
   z-index: 101;
 
-  @media screen and (max-width: 590px) {
-    top: 35%;
-    left: 50%;
-    // transform: translateX(-50%);
+  @media screen and (max-width: 600px) {
+    top: 10%;
+    left: 5%;
+    transform: translateX(-50%);
   }
 }
 
@@ -291,16 +297,21 @@
 
 .home-logo {
   position: absolute;
-  bottom: 20px;
-  right: 20px;
+  bottom: 10%;
+  right: 10%;
   z-index: 101;
-  width: 500px;
+  width: 100px;
   height: auto;
   animation: gentleFloat 4s infinite ease-in-out;
   transform-origin: center bottom; // Pivot from bottom for realistic float
 
+  @media (max-width: 600px) {
+    width: 80px;
+  }
+
   &:hover {
-    animation: activeFloat 2s infinite ease-in-out;
+    animation: smoothFloat 4s infinite ease-in-out;
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,0.1));
   }
 }
 
@@ -327,15 +338,36 @@
   }
 }
 
-@keyframes activeFloat {
-  0%,
-  100% {
-    transform: translateY(-5px) rotate(1deg) scale(1.05);
+@keyframes smoothFloat {
+    0%, 100% {
+      transform: 
+        translateY(-5px) 
+        translateX(0px)
+        rotate(0.5deg) 
+        scale(1.05);
+    }
+    25% {
+      transform: 
+        translateY(-10px) 
+        translateX(2px)
+        rotate(-0.3deg) 
+        scale(1.06);
+    }
+    50% {
+      transform: 
+        translateY(-12px) 
+        translateX(3px)
+        rotate(-0.7deg) 
+        scale(1.07);
+    }
+    75% {
+      transform: 
+        translateY(-8px) 
+        translateX(-1px)
+        rotate(0.3deg) 
+        scale(1.055);
+    }
   }
-  50% {
-    transform: translateY(-15px) rotate(-1deg) scale(1.08);
-  }
-}
 
 @media (max-width: 768px) {
   // .slider {
