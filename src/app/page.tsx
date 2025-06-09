@@ -70,7 +70,7 @@ export default function Home() {
         </section>
         <section className="build-section ">
           {/* Content */}
-          <div className="content">
+          <div className="build-section-content">
             <Typography
               variant="h2"
               label="Let us help you build."
