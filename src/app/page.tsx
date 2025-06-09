@@ -7,16 +7,16 @@ import { Button } from "@/components/atoms/Button";
 // import homeImage2 from "@/assets/images/home_02.jpg";
 import buildSolutionImg from "@/assets/images/build_solutions.jpg";
 import Image from "next/image";
-import ImageSlider from "@/components/organisams/ImageSlider";
 import Carousel from "@/components/molecules/carousel";
 import ServiceCarousel from "@/components/molecules/ServiceCarousel";
 import { ParallaxProvider, Parallax } from "react-scroll-parallax";
-import "./page.scss";
 import { projects } from "@/data/projectData";
 import classNames from "classnames";
 import { useScreenSize } from "@/utils/useScreenSize";
 import { clients } from "@/data/clientdata";
 import { services } from "@/data/serviceData";
+import NewImageSlider from "@/components/organisams/NewImageSlider";
+import "./page.scss";
 
 export default function Home() {
   const screenSize = useScreenSize();
@@ -25,7 +25,8 @@ export default function Home() {
     <ParallaxProvider>
       <main className="home-wrapper">
         {/* <PageLoader/> */}
-        <ImageSlider />
+        {/* <ImageSlider /> */}
+        <NewImageSlider />
 
         <section className="clients">
           <div className="clients-container">
@@ -45,7 +46,7 @@ export default function Home() {
             <Typography
               variant="h2"
               label="Our Services"
-              styles="title title-common poppins-semi-bold"
+              styles="title title-common merriweather-semi-bold"
             />
 
             <Typography

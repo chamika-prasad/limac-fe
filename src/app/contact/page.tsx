@@ -2,18 +2,26 @@
 
 import React, { useState } from "react";
 import { HeroTextImage } from "@/components/molecules/HeroTextImage";
-import { fbLink, instaLink, phoneLink, whatsappLink } from "@/utils/constrants";
+import {
+  fbLink,
+  instaLink,
+  phoneLink,
+  whatsappLink,
+  phoneLink2,
+  phoneLink3,
+  emailLink,
+} from "@/utils/constrants";
 import { Typography } from "@/components/atoms/Typography";
 import { Input } from "@/components/atoms/Input";
 import { TextArea } from "@/components/atoms/TextArea";
 import { Button } from "@/components/atoms/Button";
 import mapIcon from "@/assets/images/map.png";
 import callIcon from "@/assets/images/phone_solid.png";
+import fbIcon from "@/assets/images/facebook.png";
+import whatsappIcon from "@/assets/images/whatsapp.png";
+import instaIcon from "@/assets/images/insta.png";
 import emailIcon from "@/assets/images/email.png";
 import Image from "next/image";
-import fbIcon from "@/assets/images/facebook.png";
-import instaIcon from "@/assets/images/insta.png";
-import whatsappIcon from "@/assets/images/whatsapp.png";
 import "./page.scss";
 
 export default function About() {
@@ -206,11 +214,17 @@ export default function About() {
                   variant="p"
                   label={
                     <>
-                      <span className="custom-weight">+94 70 631 5212</span>
-                      <br />{" "}
-                      <span className="custom-weight">+94 71 713 1416</span>
-                      <br />{" "}
-                      <span className="custom-weight">+94 70 631 5211</span>
+                      <a href={phoneLink2} className="social-link">
+                        <span className="custom-weight">+94 70 631 5212</span>
+                      </a>
+
+                      <a href={phoneLink} className="social-link">
+                        <span className="custom-weight">+94 71 713 1416</span>
+                      </a>
+
+                      <a href={phoneLink3} className="social-link">
+                        <span className="custom-weight">+94 70 631 5211</span>
+                      </a>
                     </>
                   }
                   styles="contact-detail-text poppins-regular"
@@ -235,7 +249,11 @@ export default function About() {
                 />
                 <Typography
                   variant="p"
-                  label="info@limacsl.com"
+                  label={
+                    <a href={emailLink} className="social-link">
+                      info@limacsl.com
+                    </a>
+                  }
                   styles="contact-detail-text poppins-regular custom-weight"
                 />
               </div>

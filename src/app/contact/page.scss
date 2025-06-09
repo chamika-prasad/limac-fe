@@ -161,11 +161,6 @@
                 transform: scale(1.1);
                 transition: transform 0.3s ease-in-out;
               }
-
-              .social-link {
-                display: flex;
-                align-items: center;
-              }
             }
           }
         }
@@ -264,5 +259,11 @@
         }
       }
     }
+  }
+
+  .social-link {
+    display: flex;
+    align-items: center;
+    color: $color-black;
   }
 }
