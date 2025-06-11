@@ -17,7 +17,7 @@ const Carousel: React.FC<PropType> = (props) => {
         <TrustedClientCard
           Key={index}
           clientName={client.name}
-          clientImage={client.logo}
+          // clientImage={client.logo}
         />
       ))}
     </div>
@@ -27,7 +27,7 @@ const Carousel: React.FC<PropType> = (props) => {
         <TrustedClientCard
           Key={index}
           clientName={client.name}
-          clientImage={client.logo}
+          // clientImage={client.logo}
           className="slide"
         />
       ))}

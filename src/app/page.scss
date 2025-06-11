@@ -22,7 +22,7 @@
       margin-bottom: 2rem;
       text-transform: uppercase;
       font-size: 26px;
-      text-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+      text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     }
 
     .clients-logos {
@@ -320,7 +320,7 @@
   .title-common {
     font-size: 48px;
     color: $color-dark-blue;
-    text-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 
     @media screen and (max-width: 500px) {
       font-size: 36px;

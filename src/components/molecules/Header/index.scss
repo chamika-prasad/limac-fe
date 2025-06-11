@@ -65,6 +65,7 @@
 
     &-item {
       text-decoration: none;
+
       &:hover {
         opacity: 0.8;
       }
@@ -73,7 +74,10 @@
     &-link {
       color: $color-dark-blue;
       cursor: pointer;
+      padding: 0px 5px;
+      border-radius: 3px;
       transition: opacity 0.2s ease;
+
       &:hover {
         background-color: $color-medium-gray;
       }

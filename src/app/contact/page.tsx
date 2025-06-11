@@ -215,15 +215,15 @@ export default function About() {
                   label={
                     <>
                       <a href={phoneLink2} className="social-link">
-                        <span className="custom-weight">+94 70 631 5212</span>
+                        <span className="custom-weight">070 631 5 212</span>
                       </a>
 
                       <a href={phoneLink} className="social-link">
-                        <span className="custom-weight">+94 71 713 1416</span>
+                        <span className="custom-weight">071 713 1 416</span>
                       </a>
 
                       <a href={phoneLink3} className="social-link">
-                        <span className="custom-weight">+94 70 631 5211</span>
+                        <span className="custom-weight">070 631 5 211</span>
                       </a>
                     </>
                   }

@@ -106,12 +106,11 @@ export default function About() {
             />
 
             <div className="image-gellary">
-              {/* <ImageGellary images={images} /> */}
               <div className="left-images">
                 <div className="top-image">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src="/assets/images/rectangle_14.png"
+                    src="/assets/images/rectangle_14.jpg"
                     alt="work image"
                     className=""
                   />
@@ -119,13 +118,13 @@ export default function About() {
                 <div className="bottom-images">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src="/assets/images/rectangle_16.png"
+                    src="/assets/images/rectangle_16.jpg"
                     alt="work image"
                     className="bottom-image"
                   />
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src="/assets/images/rectangle_17.png"
+                    src="/assets/images/rectangle_17.jpg"
                     alt="work image"
                     className="bottom-image"
                   />
@@ -134,7 +133,7 @@ export default function About() {
               <div className="right-image">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/assets/images/rectangle_15.png"
+                  src="/assets/images/rectangle_15.jpg"
                   alt="work image"
                   className=""
                 />
@@ -237,7 +236,7 @@ export default function About() {
               <Image src={callIcon} alt="instagram" priority className="" />
               <Typography
                 variant="p"
-                label=": +94 70 631 5212 , +94 71 713 1416 , +94 70 631 5211"
+                label=": 070 631 5 212 , 071 713 1 416 , 070 631 5 211"
                 styles="contact-detail-text poppins-regular"
               />
             </div>

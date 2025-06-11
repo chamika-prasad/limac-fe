@@ -39,7 +39,7 @@ export const services = [
       "Towers and Special Structures",
       "Fabrication and Erection Services",
     ],
-    image: "/assets/images/consultancy-services.jpg",
+    image: "/assets/images/steel_structure.jpg",
     icon: "assets/images/steel_icon.png",
   },
   {

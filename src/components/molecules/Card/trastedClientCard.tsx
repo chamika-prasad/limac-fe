@@ -6,14 +6,14 @@ import classNames from "classnames";
 interface ITrustedClientCardProps {
   Key: number;
   clientName: string;
-  clientImage: string;
+  // clientImage: string;
   className?: string;
 }
 
 export const TrustedClientCard = ({
   Key,
   clientName,
-  clientImage,
+  // clientImage,
   className,
 }: ITrustedClientCardProps) => {
   return (
@@ -22,11 +22,11 @@ export const TrustedClientCard = ({
       className={classNames("client-wrapper", className ? className : "")}
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
+      {/* <img
         src={clientImage}
         alt={`${clientName}-logo`}
         className="client-logo"
-      />
+      /> */}
       <Typography
         variant="p"
         label={clientName}

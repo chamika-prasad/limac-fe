@@ -24,15 +24,14 @@ export default function Home() {
   return (
     <ParallaxProvider>
       <main className="home-wrapper">
-        {/* <PageLoader/> */}
-        {/* <ImageSlider /> */}
-        <NewImageSlider />
+        <NewImageSlider autoPlayInterval={4000} animationDuration={1.2}/>
 
         <section className="clients">
           <div className="clients-container">
             <Typography
               variant="h2"
-              label="OUR TRUSTED CLIENTS"
+              // label="OUR TRUSTED CLIENTS"
+              label="WE ARE EXPERT IN"
               styles="clients-title inter-bold"
             />
 

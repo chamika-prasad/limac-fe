@@ -4,13 +4,13 @@ import {
   Poppins,
   Roboto,
   Work_Sans,
-  Merriweather
+  Merriweather,
 } from "next/font/google";
 import { Header } from "@/components/molecules/Header";
 import { Footer } from "@/components/molecules/Footer";
 import classNames from "classnames";
 import { AOSInit } from "@/utils/aos";
-import 'react-tooltip/dist/react-tooltip.css'
+import "react-tooltip/dist/react-tooltip.css";
 import "./globals.css";
 
 // Define Inter fonts
@@ -20,7 +20,7 @@ const merriweatherSemiBold = Merriweather({
   variable: "--font-merriweather-semi-bold",
 });
 
-const merriweatherRegular= Merriweather({
+const merriweatherRegular = Merriweather({
   subsets: ["latin"],
   weight: "400",
   variable: "--font-merriweather-regular",
@@ -102,7 +102,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <AOSInit/>
+      <AOSInit />
       <Header />
       <body
         className={classNames(
