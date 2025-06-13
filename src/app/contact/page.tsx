@@ -90,7 +90,7 @@ export default function About() {
 
               <Button
                 label="Send Message"
-                className="contact-button"
+                className="contact-button disable"
                 onClick={() => {
                   console.log("clicked");
                 }}
