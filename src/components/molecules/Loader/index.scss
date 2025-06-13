@@ -36,6 +36,10 @@
     filter: blur(12px);
   }
 
+  &.hide {
+    display: none;
+  }
+
   // Loader image styles
   .loader-image {
     max-width: 100px;

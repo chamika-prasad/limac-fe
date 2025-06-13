@@ -1,8 +1,10 @@
-import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect, useCallback } from "react";
-import "./index.scss";
+import { motion, AnimatePresence } from "framer-motion";
 import { Typography } from "@/components/atoms/Typography";
 import { Button } from "@/components/atoms/Button";
+import { useScreenSize } from "@/utils/useScreenSize";
+import { useRouter } from "next/navigation";
+import "./index.scss";
 
 interface ImageSliderProps {
   images?: string[];
@@ -25,6 +27,9 @@ const NewImageSlider: React.FC<ImageSliderProps> = ({
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const [autoPlay, setAutoPlay] = useState(true);
+
+  const screenSize = useScreenSize();
+  const router = useRouter();
 
   // Calculate total animation time including all row delays
   const totalAnimationTime = animationDuration + (rowCount - 1) * 0.1;
@@ -55,6 +60,16 @@ const NewImageSlider: React.FC<ImageSliderProps> = ({
         "“Whether you’re planning your next luxury development or seeking a trusted construction partner, we’re here to bring your vision to life. Reach out to us”",
     },
   ];
+
+  const handleIndicatorClick = (index: number) => {
+    setAutoPlay(false);
+    goToSlide(index);
+    setTimeout(() => setAutoPlay(true), autoPlayInterval * 2);
+  };
+
+  const handleClick = () => {
+    router.push(`/projects`);
+  };
 
   const goToSlide = useCallback(
     (newIndex: number) => {
@@ -87,12 +102,6 @@ const NewImageSlider: React.FC<ImageSliderProps> = ({
 
     return () => clearInterval(interval);
   }, [autoPlay, autoPlayInterval, nextSlide, totalAnimationTime]);
-
-  const handleIndicatorClick = (index: number) => {
-    setAutoPlay(false);
-    goToSlide(index);
-    setTimeout(() => setAutoPlay(true), autoPlayInterval * 2);
-  };
 
   return (
     <div className="slider-container">
@@ -129,7 +138,9 @@ const NewImageSlider: React.FC<ImageSliderProps> = ({
                   style={{
                     backgroundImage: `url(${images[currentIndex]})`,
                     backgroundPosition: `center ${bgPosition}%`,
-                    backgroundSize: `100% ${rowCount * 100 + 0.2}%`,
+                    backgroundSize: ` ${
+                      screenSize.width > 1113 ? "100%" : "auto"
+                    } ${rowCount * 100 + 0.2}%`,
                   }}
                 />
                 <div
@@ -139,7 +150,9 @@ const NewImageSlider: React.FC<ImageSliderProps> = ({
                       images[(currentIndex + 1) % images.length]
                     })`,
                     backgroundPosition: `center ${bgPosition}%`,
-                    backgroundSize: `100% ${rowCount * 100 + 0.2}%`,
+                    backgroundSize: ` ${
+                      screenSize.width > 1113 ? "100%" : "auto"
+                    }  ${rowCount * 100 + 0.2}%`,
                   }}
                 />
               </motion.div>
@@ -250,9 +263,7 @@ const NewImageSlider: React.FC<ImageSliderProps> = ({
             <div className="btn">
               <Button
                 label="See Our Work"
-                onClick={() => {
-                  console.log("");
-                }}
+                onClick={handleClick}
                 className="cta-button"
               />
             </div>
@@ -260,7 +271,7 @@ const NewImageSlider: React.FC<ImageSliderProps> = ({
         </motion.div>
       </AnimatePresence>
 
-      <img src="/assets/images/home_logo.png" alt="" className="home-logo"/>
+      <img src="/assets/images/home_logo.png" alt="" className="home-logo" />
 
       <div className="slider-overlay" />
     </div>

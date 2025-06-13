@@ -260,6 +260,7 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-top: 40px;
+    cursor: pointer;
 
     &:hover {
       background-color: darken($color-dark-blue, 10%);

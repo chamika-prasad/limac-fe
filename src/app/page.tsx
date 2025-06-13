@@ -16,15 +16,23 @@ import { useScreenSize } from "@/utils/useScreenSize";
 import { clients } from "@/data/clientdata";
 import { services } from "@/data/serviceData";
 import NewImageSlider from "@/components/organisams/NewImageSlider";
+import { useRouter } from "next/navigation";
 import "./page.scss";
 
 export default function Home() {
+  const router = useRouter();
   const screenSize = useScreenSize();
-  const handleClick = () => {};
+
+  const handleClick = () => {
+    console.log("Contact Us button clicked");
+
+    router.push(`/contact`);
+  };
+
   return (
     <ParallaxProvider>
       <main className="home-wrapper">
-        <NewImageSlider autoPlayInterval={4000} animationDuration={1.2}/>
+        <NewImageSlider autoPlayInterval={4000} animationDuration={1.2} />
 
         <section className="clients">
           <div className="clients-container">
@@ -120,7 +128,6 @@ export default function Home() {
               )}
             >
               {projects.map((project, index) => (
-                // <div className="project-holder" key={index}>
                 <HomeRecentProjectCard
                   Key={index}
                   projectName={project.name}
@@ -130,7 +137,6 @@ export default function Home() {
                   className="project-card"
                   location={project.location}
                 />
-                // </div>
               ))}
             </div>
 

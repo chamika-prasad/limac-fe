@@ -1,14 +1,16 @@
 import React from "react";
+import classNames from "classnames";
 import "./index.scss";
 
 interface LoaderProps {
   isTransitioning: boolean;
+  hide: boolean;
 }
 
-const Loader = ({ isTransitioning }: LoaderProps) => {
+const Loader = ({ isTransitioning, hide }: LoaderProps) => {
   return (
     <div
-      className={`loader-container ${isTransitioning ? "page-transition" : ""}`}
+      className={classNames("loader-container" ,isTransitioning ? "page-transition" : "", hide ? "hide" : "")}
     >
       <img
         src="/assets/images/home_logo.png"

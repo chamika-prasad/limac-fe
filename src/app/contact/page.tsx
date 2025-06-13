@@ -90,10 +90,11 @@ export default function About() {
 
               <Button
                 label="Send Message"
-                className="contact-button poppins-medium"
+                className="contact-button"
                 onClick={() => {
                   console.log("clicked");
                 }}
+                disabled
               />
             </div>
             <div className="follow-us-container">
