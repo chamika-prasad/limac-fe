@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { Typography } from "@/components/atoms/Typography";
-import logo from "@/assets/images/logo.png";
+// import logo from "@/assets/images/logo.png";
 import menu from "@/assets/images/menu.png";
 import cancel from "@/assets/images/cancel.png";
 import Link from "next/link";
@@ -48,8 +48,9 @@ export const Header = () => {
       <div className="header__container">
         {/* Logo on the left */}
         <div className="header__logo">
+          {/* <img src={logo.src} alt="IDLIMAC Logo" /> */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={logo.src} alt="IDLIMAC Logo" />
+          <img src="assets/images/logo_landscape.png" alt="IDLIMAC Logo" />
         </div>
 
         {/* Hamburger Icon */}

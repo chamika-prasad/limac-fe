@@ -4,7 +4,6 @@ import { Typography } from "@/components/atoms/Typography";
 import { HomeRecentProjectCard } from "@/components/molecules/Card/homeRecentProjectCard";
 import { ServiceCard } from "@/components/molecules/Card/serviceCard";
 import { Button } from "@/components/atoms/Button";
-// import homeImage2 from "@/assets/images/home_02.jpg";
 import buildSolutionImg from "@/assets/images/build_solutions.jpg";
 import Image from "next/image";
 import Carousel from "@/components/molecules/carousel";
@@ -15,8 +14,8 @@ import classNames from "classnames";
 import { useScreenSize } from "@/utils/useScreenSize";
 import { clients } from "@/data/clientdata";
 import { services } from "@/data/serviceData";
-import NewImageSlider from "@/components/organisams/NewImageSlider";
 import { useRouter } from "next/navigation";
+import FadingCarousel from "@/components/organisams/OpacityImageSlider";
 import "./page.scss";
 
 export default function Home() {
@@ -32,7 +31,8 @@ export default function Home() {
   return (
     <ParallaxProvider>
       <main className="home-wrapper">
-        <NewImageSlider autoPlayInterval={4000} animationDuration={1.2} />
+        {/* <NewImageSlider autoPlayInterval={4000} animationDuration={1.2} /> */}
+        <FadingCarousel/>
 
         <section className="clients">
           <div className="clients-container">
