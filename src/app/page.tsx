@@ -9,22 +9,36 @@ import Image from "next/image";
 import Carousel from "@/components/molecules/carousel";
 import ServiceCarousel from "@/components/molecules/ServiceCarousel";
 import { ParallaxProvider, Parallax } from "react-scroll-parallax";
-import { projects } from "@/data/projectData";
 import classNames from "classnames";
 import { useScreenSize } from "@/utils/useScreenSize";
-import { clients } from "@/data/clientdata";
-import { services } from "@/data/serviceData";
 import { useRouter } from "next/navigation";
 import FadingCarousel from "@/components/organisams/OpacityImageSlider";
+import { useGetAllProjectsQuery } from "./api/projectApi";
+import { useGetAllServicesQuery } from "./api/serviceApi";
+import { Project, Service } from "@/types";
 import "./page.scss";
 
 export default function Home() {
   const router = useRouter();
   const screenSize = useScreenSize();
 
-  const handleClick = () => {
-    console.log("Contact Us button clicked");
+  const {
+    data: fetchedProjectsData,
+    /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
+    isLoading: projectsDataIsLoading,
+    /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
+    isError: projectsDataIsError,
+  } = useGetAllProjectsQuery({});
 
+  const {
+    data: servicesData,
+    /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
+    isLoading: servicesDataIsLoading,
+    /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
+    isError: servicesDataIsError,
+  } = useGetAllServicesQuery({});
+
+  const handleClick = () => {
     router.push(`/contact`);
   };
 
@@ -32,7 +46,7 @@ export default function Home() {
     <ParallaxProvider>
       <main className="home-wrapper">
         {/* <NewImageSlider autoPlayInterval={4000} animationDuration={1.2} /> */}
-        <FadingCarousel/>
+        <FadingCarousel />
 
         <section className="clients">
           <div className="clients-container">
@@ -43,9 +57,14 @@ export default function Home() {
               styles="clients-title inter-bold"
             />
 
-            <div className="clients-logos">
-              <Carousel slides={clients} />
-            </div>
+            {servicesData &&
+            servicesData.success &&
+            servicesData.data &&
+            servicesData.data.length > 0 ? (
+              <div className="clients-logos">
+                <Carousel slides={servicesData.data} />
+              </div>
+            ) : null}
           </div>
         </section>
         <section className="services">
@@ -62,17 +81,22 @@ export default function Home() {
               styles="description poppins-regular"
             />
 
-            <ServiceCarousel>
-              {services.map((service, index) => (
-                <ServiceCard
-                  title={service.title}
-                  items={service.items}
-                  serviceCardKey={index}
-                  icon={service.icon}
-                  key={index}
-                />
-              ))}
-            </ServiceCarousel>
+            {servicesData &&
+            servicesData.success &&
+            servicesData.data &&
+            servicesData.data.length > 0 ? (
+              <ServiceCarousel>
+                {servicesData.data.map((service: Service, index: number) => (
+                  <ServiceCard
+                    title={service.serviceName}
+                    items={service.includes.split(",")}
+                    serviceCardKey={index}
+                    icon={service.logo}
+                    key={index}
+                  />
+                ))}
+              </ServiceCarousel>
+            ) : null}
           </div>
         </section>
         <section className="build-section ">
@@ -121,23 +145,31 @@ export default function Home() {
             <div
               className={classNames(
                 "recent-projects",
-                (projects.length <= 2 && screenSize.width > 700) ||
+                (fetchedProjectsData &&
+                  fetchedProjectsData.success &&
+                  fetchedProjectsData.data.length <= 2 &&
+                  screenSize.width > 700) ||
                   screenSize.width <= 700
                   ? "justify-center"
                   : "justify-space-between"
               )}
             >
-              {projects.map((project, index) => (
-                <HomeRecentProjectCard
-                  Key={index}
-                  projectName={project.name}
-                  projectDescription={project.des1}
-                  projectImage={project.images[0].src}
-                  id={project.id}
-                  className="project-card"
-                  location={project.location}
-                />
-              ))}
+              {fetchedProjectsData &&
+                fetchedProjectsData.success &&
+                fetchedProjectsData.data.length > 0 &&
+                fetchedProjectsData.data.map(
+                  (project: Project, index: number) => (
+                    <HomeRecentProjectCard
+                      Key={index}
+                      projectName={project.projectName}
+                      projectDescription={project.topDescription}
+                      projectImage={project.topImages.split(",")[0]}
+                      id={project.id}
+                      className="project-card"
+                      location={project.location}
+                    />
+                  )
+                )}
             </div>
 
             <div className="cta">

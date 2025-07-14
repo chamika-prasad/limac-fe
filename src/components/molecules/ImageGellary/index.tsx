@@ -3,16 +3,8 @@ import React from "react";
 import Image from "next/image";
 import "./index.scss";
 
-interface ImageData {
-  src: string;
-  alt?: string;
-  width?: number;
-  height?: number;
-  priority?: boolean;
-}
-
 interface ImageGalleryProps {
-  images: ImageData[];
+  images: string[];
   className?: string;
 }
 
@@ -22,11 +14,11 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({ images, className }) => {
       {images.map((image, index) => (
         <div key={index} className={`image-wrapper image${index + 1}`}>
           <Image
-            src={image.src}
-            alt={image.alt || image.src}
-            width={image.width || 400}
-            height={image.height || 300}
-            priority={image.priority || index === 0}
+            src={`${process.env.NEXT_PUBLIC_API_URL}/${image}`}
+            alt={image}
+            width={400}
+            height={300}
+            priority={index === 0}
             className="image"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />

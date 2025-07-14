@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.8.2",
     "@types/aos": "^3.0.7",
     "aos": "^2.3.4",
     "classnames": "^2.5.1",
@@ -17,18 +18,19 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-fast-marquee": "^1.6.5",
+    "react-redux": "^9.2.0",
     "react-scroll-parallax": "^3.4.5",
     "react-tooltip": "^5.28.1",
     "swiper": "^11.2.8"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
-    "@types/node": "^20",
+    "@types/node": "^24.0.3",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.3.2",
     "sass": "^1.89.0",
-    "typescript": "^5"
+    "ts-node": "^10.9.2"
   }
 }

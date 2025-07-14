@@ -40,7 +40,7 @@ export default function About() {
   return (
     <main className="about-page-wrapper">
       <HeroTextImage
-        imageUrl="assets/images/about.jpg"
+        imageUrl={`${process.env.NEXT_PUBLIC_API_URL}/uploads/about/about.jpg`}
         topic="About us"
         description={
           <>
@@ -110,7 +110,7 @@ export default function About() {
                 <div className="top-image">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src="/assets/images/rectangle_14.jpg"
+                    src={`${process.env.NEXT_PUBLIC_API_URL}/uploads/about/rectangle_14.jpg`}
                     alt="work image"
                     className=""
                   />
@@ -118,13 +118,14 @@ export default function About() {
                 <div className="bottom-images">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src="/assets/images/rectangle_16.jpg"
+                    src={`${process.env.NEXT_PUBLIC_API_URL}/uploads/about/rectangle_16.jpg`}
                     alt="work image"
                     className="bottom-image"
                   />
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src="/assets/images/rectangle_17.jpg"
+                    // src="/assets/images/rectangle_17.jpg"
+                    src={`${process.env.NEXT_PUBLIC_API_URL}/uploads/about/rectangle_17.jpg`}
                     alt="work image"
                     className="bottom-image"
                   />
@@ -133,7 +134,7 @@ export default function About() {
               <div className="right-image">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/assets/images/rectangle_15.jpg"
+                  src={`${process.env.NEXT_PUBLIC_API_URL}/uploads/about/rectangle_15.jpg`}
                   alt="work image"
                   className=""
                 />

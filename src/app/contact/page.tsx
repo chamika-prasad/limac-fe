@@ -22,6 +22,8 @@ import whatsappIcon from "@/assets/images/whatsapp.png";
 import instaIcon from "@/assets/images/insta.png";
 import emailIcon from "@/assets/images/email.png";
 import Image from "next/image";
+import { useContactMutation } from "../api/contactApi";
+import classNames from "classnames";
 import "./page.scss";
 
 export default function About() {
@@ -30,11 +32,38 @@ export default function About() {
   const [mobileNo, setMobileNo] = useState("");
   const [message, setMessage] = useState("");
 
+  /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
+  const [contact, { isLoading, isSuccess, isError }] = useContactMutation();
+
+  const handleContact = async () => {
+    try {
+      /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
+      const response = await contact({
+        name,
+        email,
+        mobileNo,
+        message,
+      }).unwrap();
+
+      alert("Message sent successfully!");
+
+      // Clear form after success
+      setName("");
+      setEmail("");
+      setMobileNo("");
+      setMessage("");
+    } catch (err) {
+      console.error("Error sending message:", err);
+      alert("Something went wrong. Please try again later.");
+    }
+  };
+
   return (
     <main className="contact-page-wrapper">
       <div className="contact-page-container">
         <HeroTextImage
-          imageUrl="assets/images/contact.png"
+          // imageUrl="assets/images/contact.png"
+          imageUrl={`${process.env.NEXT_PUBLIC_API_URL}/uploads/contact/contact.png`}
           topic="Contact us"
           description="here to bring your vision to life. Reach out to us — we’re just a message away."
         />
@@ -89,12 +118,15 @@ export default function About() {
               />
 
               <Button
-                label="Send Message"
-                className="contact-button disable"
-                onClick={() => {
-                  console.log("clicked");
-                }}
-                disabled
+                label={isLoading ? "Sending..." : "Send Message"}
+                className={classNames(
+                  "contact-button",
+                  !name || !email || !mobileNo || !message || isLoading
+                    ? "disable"
+                    : ""
+                )}
+                onClick={handleContact}
+                disabled={!name || !email || !mobileNo || !message || isLoading}
               />
             </div>
             <div className="follow-us-container">

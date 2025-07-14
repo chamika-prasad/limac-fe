@@ -70,19 +70,23 @@
       text-align: center;
 
       @media screen and (max-width: 500px) {
-        font-size: 48px;
+        font-size: 40px;
       }
     }
 
     .hero-topic-48 {
       font-size: 48px;
+
+      @media screen and (max-width: 500px) {
+        font-size: 40px;
+      }
     }
 
     .hero-topic-64 {
       font-size: 64px;
 
       @media screen and (max-width: 500px) {
-        font-size: 48px;
+        font-size: 40px;
       }
     }
 

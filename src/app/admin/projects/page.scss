@@ -1,0 +1,173 @@
+.projects-page {
+  padding: 20px;
+  min-height: 100vh;
+
+  .top-nav {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-bottom: 20px;
+
+    .nav-btn {
+      padding: 8px 16px;
+      background-color: #e0e0e0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+
+      &.active {
+        background-color: #007bff;
+        color: #fff;
+        font-weight: bold;
+      }
+
+      &:hover {
+        background-color: #c0c0c0;
+      }
+    }
+  }
+
+  .add-project-section {
+    margin-bottom: 20px;
+  }
+
+  .project-list {
+    .project-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px;
+      border: 1px solid #ddd;
+      margin-bottom: 10px;
+      border-radius: 4px;
+
+      .project-name {
+        font-weight: bold;
+      }
+
+      .project-actions {
+        display: flex;
+        gap: 10px;
+      }
+    }
+  }
+
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+
+    .modal-content {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      min-width: 320px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 90vw;
+      height: 90vh;
+      overflow-y: scroll;
+
+      textarea,
+      input[type="file"] {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        resize: vertical;
+      }
+
+      textarea,
+      input[type="text"] {
+        min-height: 35px;
+        padding: 8px;
+        border-radius: 4px;
+      }
+
+      button {
+        padding: 8px;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      .image-preview {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 10px;
+
+        .preview-item {
+          position: relative;
+
+          img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border: 1px solid #ccc;
+          }
+
+          button {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+
+  .add-btn {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .disabled{
+    cursor: not-allowed !important;
+    background-color: #e0e0e0;
+  }
+
+  .edit-btn {
+    padding: 6px 12px;
+    background-color: #fd7e14;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .delete-btn {
+    padding: 6px 12px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .radio-group{
+    display: flex;
+    gap: 20px;
+
+    label{
+      display: flex;
+      gap: 5px;
+      align-items: center;
+    }
+  }
+}

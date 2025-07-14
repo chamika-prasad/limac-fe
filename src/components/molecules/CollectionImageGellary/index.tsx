@@ -4,16 +4,8 @@ import React, { useState } from "react";
 import Image from "next/image";
 import "./index.scss";
 
-interface ImageData {
-    src: string;
-    alt?: string;
-    width?: number;
-    height?: number;
-    priority?: boolean;
-  }
-
 interface ImageGalleryProps {
-  images: ImageData[];
+  images: string[];
   columns?: {
     mobile?: number;
     tablet?: number;
@@ -93,10 +85,10 @@ const CollectionImageGallery: React.FC<ImageGalleryProps> = ({
             onClick={() => handleImageClick(index)}
           >
             <Image
-              src={image.src}
-              alt={image.alt || ""}
-              width={image.width || 500}
-              height={image.height || 500}
+              src={`${process.env.NEXT_PUBLIC_API_URL}/${image}`}
+              alt={image}
+              width={500}
+              height={500}
               className="image"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
@@ -166,10 +158,10 @@ const CollectionImageGallery: React.FC<ImageGalleryProps> = ({
 
             <div className="lightbox-image-container">
               <Image
-                src={images[selectedImageIndex].src}
-                alt={images[selectedImageIndex].alt || ""}
-                width={images[selectedImageIndex].width || 1200}
-                height={images[selectedImageIndex].height || 800}
+                src={`${process.env.NEXT_PUBLIC_API_URL}/${images[selectedImageIndex]}`}
+                alt={images[selectedImageIndex]}
+                width={1200}
+                height={800}
                 className="lightbox-image"
                 priority
               />

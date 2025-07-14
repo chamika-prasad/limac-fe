@@ -44,7 +44,7 @@ export const HomeRecentProjectCard = ({
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <div key={`project-${Key}`} className="image-container">
         <Image
-          src={projectImage}
+          src={`${process.env.NEXT_PUBLIC_API_URL}/${projectImage}`}
           alt={`${projectName}-img`}
           width={500}
           height={500}
@@ -79,7 +79,7 @@ export const HomeRecentProjectCard = ({
     rgba(255, 255, 255, 0.3) 20%,
   rgba(255, 255, 255, 0.5) 95%
   ),
-          url(${projectImage})
+          url(${process.env.NEXT_PUBLIC_API_URL}/${projectImage})
         `,
         backgroundSize: "cover",
         backgroundPosition: "center",

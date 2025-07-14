@@ -45,17 +45,17 @@ export const Header = () => {
 
   return (
     <header className="header" ref={headerRef}>
-      <div className="header__container">
+      <div className="header-container">
         {/* Logo on the left */}
-        <div className="header__logo">
+        <div className="header-logo">
           {/* <img src={logo.src} alt="IDLIMAC Logo" /> */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="assets/images/logo_landscape.png" alt="IDLIMAC Logo" />
+          <img src="/assets/images/logo_landscape.png" alt="IDLIMAC Logo" />
         </div>
 
         {/* Hamburger Icon */}
         <div
-          className="header__hamburger"
+          className="header-hamburger"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           {isMenuOpen ? (
@@ -66,19 +66,19 @@ export const Header = () => {
         </div>
 
         {/* Navigation menu */}
-        <nav className={`header__nav ${isMenuOpen ? "header__nav--open" : ""}`}>
-          <ul className="header__nav-list">
+        <nav className={`header-nav ${isMenuOpen ? "header-nav-open" : ""}`}>
+          <ul className="header-nav-list">
             {navItems.map((item) => (
               <li key={item.label}>
                 <Link
                   href={item.path}
-                  className="header__nav-item"
+                  className="header-nav-item"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <Typography
                     variant="p"
                     label={item.label}
-                    styles="header__nav-link poppins-medium"
+                    styles="header-nav-link poppins-medium"
                   />
                 </Link>
               </li>

@@ -22,7 +22,7 @@ export const services = [
     title: "Building Construction",
     items: [
       "Residential Buildings",
-      "Commercial Buildings (Hotels and Resorts, Apartments)",
+      "Commercial Buildings (Hotels and Resorts and Apartments)",
       "Industrial Buildings",
     ],
     image: "/assets/images/building-construction.jpg",

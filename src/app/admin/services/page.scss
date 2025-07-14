@@ -1,0 +1,141 @@
+.services-page {
+    padding: 20px;
+    min-height: 100vh;
+  
+    .top-nav {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-bottom: 20px;
+  
+      .nav-btn {
+        padding: 8px 16px;
+        background-color: #e0e0e0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+  
+        &.active {
+          background-color: #007bff;
+          color: #fff;
+          font-weight: bold;
+        }
+  
+        &:hover {
+          background-color: #c0c0c0;
+        }
+      }
+    }
+  
+    .add-service-section {
+      margin-bottom: 20px;
+  
+      .add-btn {
+        padding: 10px 20px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+    }
+  
+    .service-list {
+      .service-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px;
+        border: 1px solid #ddd;
+        margin-bottom: 10px;
+        border-radius: 4px;
+  
+        .service-name {
+          font-weight: bold;
+        }
+  
+        .service-actions {
+          display: flex;
+          gap: 10px;
+  
+          .edit-btn {
+            padding: 6px 12px;
+            background-color: #fd7e14;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+          }
+  
+          .delete-btn {
+            padding: 6px 12px;
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0,0,0,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  
+      .modal-content {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        min-width: 320px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+  
+        input[type="text"],
+        input[type="file"],
+        textarea {
+          padding: 8px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+        }
+  
+        button {
+          padding: 8px;
+          border-radius: 4px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .add-btn {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .disabled{
+    cursor: not-allowed !important;
+    background-color: #e0e0e0;
+  }
+
+  .delete-btn {
+    padding: 6px 12px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }

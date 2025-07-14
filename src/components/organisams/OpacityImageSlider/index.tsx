@@ -15,25 +15,26 @@ const FadingCarousel = () => {
   // Default images if none provided
   const slideImageitems = [
     {
-      image: "assets/images/home_bg_01.jpg",
+      // image: "assets/images/home_bg_01.jpg",
+      image: `${process.env.NEXT_PUBLIC_API_URL}/uploads/home/home_bg_01.jpg`,
       title: "Welcome",
       description:
         "“From Iconic Residences To Landmark Commercial Spaces, We Deliver Elegance Through Engineering.”",
     },
     {
-      image: "assets/images/home_bg_02.png",
+      image: `${process.env.NEXT_PUBLIC_API_URL}/uploads/home/home_bg_02.png`,
       title: "Vision",
       description:
         "“To lead Sri Lanka's construction industry through innovation, affordability, and sustainable development.”",
     },
     {
-      image: "assets/images/home_bg_03.jpg",
+      image: `${process.env.NEXT_PUBLIC_API_URL}/uploads/home/home_bg_03.jpg`,
       title: "Mission",
       description:
         "“To deliver quality, cost-effective, and responsible building solutions while empowering communities and exceeding client expectations.”",
     },
     {
-      image: "assets/images/home_bg_04.jpg",
+      image: `${process.env.NEXT_PUBLIC_API_URL}/uploads/home/home_bg_04.jpg`,
       title: "Join Us",
       description:
         "“Whether you’re planning your next luxury development or seeking a trusted construction partner, we’re here to bring your vision to life. Reach out to us”",

@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import Loader from "@/components/molecules/Loader";
+import { Provider } from "react-redux";
+import { store } from "@/state/store";
 
 export default function Template({ children }: { children: React.ReactNode }) {
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -14,16 +16,18 @@ export default function Template({ children }: { children: React.ReactNode }) {
 
     doTransition();
 
-     {/* eslint-disable-next-line @typescript-eslint/no-unused-vars */}
+    {/* eslint-disable-next-line @typescript-eslint/no-unused-vars */}
     const timer = setTimeout(() => {
       setHide(true);
     }, 2000); // Adjust the duration as needed
   }, []);
 
   return (
-    <div>
-      <Loader isTransitioning={isTransitioning} hide={hide}/>
-      {children}
-    </div>
+    <Provider store={store}>
+      <div>
+        <Loader isTransitioning={isTransitioning} hide={hide} />
+        {children}
+      </div>
+    </Provider>
   );
 }

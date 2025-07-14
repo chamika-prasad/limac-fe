@@ -37,7 +37,7 @@ export const ServiceItem = ({
       style={{
         background: `
           linear-gradient(rgba(11, 26, 55, 0.7), rgba(11, 26, 55, 0.7)),
-          url(${imageUrl})
+          url(${process.env.NEXT_PUBLIC_API_URL}/${imageUrl})
         `,
         backgroundSize: "cover",
         backgroundPosition: "center",

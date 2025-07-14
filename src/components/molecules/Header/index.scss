@@ -1,4 +1,4 @@
-@import "./../../../styles/colors.scss";
+@import "./../../../styles/colors";
 
 .header {
   background-color: $color-light-gray;
@@ -9,7 +9,7 @@
   z-index: 101;
   visibility: hidden;
 
-  &__container {
+  .header-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -29,14 +29,14 @@
     }
   }
 
-  &__logo {
+  .header-logo{
     img {
       height: 40px; // Adjust as needed
       width: auto;
     }
   }
 
-  &__hamburger {
+  .header-hamburger {
     display: none;
     cursor: pointer;
 
@@ -45,8 +45,8 @@
     }
   }
 
-  &__nav {
-    &-list {
+  .header-nav {
+    .header-nav-list {
       display: flex;
       gap: 2rem;
       list-style: none;
@@ -63,7 +63,7 @@
       }
     }
 
-    &-item {
+    .header-nav-item {
       text-decoration: none;
 
       &:hover {
@@ -71,7 +71,7 @@
       }
     }
 
-    &-link {
+    .header-nav-link {
       color: $color-dark-blue;
       cursor: pointer;
       padding: 0px 5px;
@@ -106,7 +106,7 @@
       border-radius: 0 0 10px 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   
-      &--open {
+      .header-nav-open {
         max-height: 500px; // Large enough to show full menu
         opacity: 1;
         transform: translateY(0);

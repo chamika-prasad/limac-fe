@@ -9,7 +9,7 @@ interface ServiceIconProps {
 const ServiceIcon = ({ iconSrc, title }: ServiceIconProps) => {
   return (
     <div className="service-icon">
-      <img src={iconSrc} alt={`service-${title}`} className="client-logo" />
+      <img src={`${process.env.NEXT_PUBLIC_API_URL}/${iconSrc}`} alt={`service-${title}`} className="client-logo" />
     </div>
   );
 };
