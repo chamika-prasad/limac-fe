@@ -18,7 +18,7 @@ export const HeroTextImage = ({
   return (
     <div className="hero-text-img-wrapper">
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <div className="image-wrapper">
+      <div className="hero-image-wrapper">
         <img src={imageUrl} alt={altText} className="image" />
         <div className="hero-img-overlay" />
       </div>
