@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Loader from "@/components/molecules/Loader";
 import { Provider } from "react-redux";
 import { store } from "@/state/store";
+import { ToastContainer } from 'react-toastify';
 
 export default function Template({ children }: { children: React.ReactNode }) {
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -26,6 +27,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
     <Provider store={store}>
       <div>
         <Loader isTransitioning={isTransitioning} hide={hide} />
+        <ToastContainer />
         {children}
       </div>
     </Provider>

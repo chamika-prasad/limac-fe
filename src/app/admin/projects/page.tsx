@@ -1,7 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
-import "./page.scss";
+import React, { useEffect, useState } from "react";
 import {
   useAddProjectMutation,
   useGetAllProjectsQuery,
@@ -10,8 +9,12 @@ import {
 } from "@/app/api/projectApi";
 import { Project } from "@/types";
 import classNames from "classnames";
+import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
+import "./page.scss";
 
 export default function ProjectsPage() {
+  const router = useRouter();
   /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
   const [activeTab, setActiveTab] = useState("projects");
   const [showAddModal, setShowAddModal] = useState(false);
@@ -57,18 +60,11 @@ export default function ProjectsPage() {
   const [updateProject] = useUpdateProjectMutation();
   const [deleteProject] = useDeleteProjectMutation();
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
-  if (isError) {
-    return <div>Error fetching projects</div>;
-  }
-
   const handleTopImagesChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = Array.from(e.target.files || []);
     if (topImages.length + files.length > 5) {
-      alert("Maximum 5 top images allowed");
+      // alert("Maximum 5 top images allowed");
+      toast.error("Maximum 5 top images allowed");
       return;
     }
     setTopImages((prev) => [...prev, ...files]);
@@ -87,7 +83,8 @@ export default function ProjectsPage() {
       updateTopImages.length + files.length + updateExistingTopImages.length >
       5
     ) {
-      alert("Maximum 5 top images allowed");
+      // alert("Maximum 5 top images allowed");
+      toast.error("Maximum 5 top images allowed");
       return;
     }
     setUpdateTopImages((prev) => [...prev, ...files]);
@@ -161,7 +158,8 @@ export default function ProjectsPage() {
 
     try {
       const response = await addProject(formData).unwrap();
-      alert(response?.message);
+      // alert(response?.message);
+      toast.success(response?.message);
       setShowAddModal(false);
     } catch (error) {
       console.error("Failed to add project:", error);
@@ -169,9 +167,11 @@ export default function ProjectsPage() {
         error &&
         typeof error === "object" &&
         "status" in error &&
-        (error as { status: number }).status === 401
+        ((error as { status: number }).status === 401 ||
+          (error as { status: number }).status === 403)
       ) {
-        window.location.href = "/admin";
+        // window.location.href = "/admin";
+        router.push("/admin");
       }
     }
   };
@@ -182,7 +182,8 @@ export default function ProjectsPage() {
     }
 
     if (updateTopImages.length !== updateRemovedExistingTopImages.length) {
-      alert("Top images count should 5");
+      // alert("Top images count should 5");
+      toast.error("Top images count should 5");
       return;
     }
     const formData = new FormData();
@@ -247,18 +248,22 @@ export default function ProjectsPage() {
         id: selectedProject.id,
         updateData: formData,
       }).unwrap();
-      alert(response?.message);
+      // alert(response?.message);
+      toast.success(response?.message);
       setShowEditModal(false);
     } catch (error) {
       console.error("Failed to update project:", error);
-      alert("Failed to update project");
+      // alert("Failed to update project");
+      toast.error("Failed to update project");
       if (
         error &&
         typeof error === "object" &&
         "status" in error &&
-        (error as { status: number }).status === 401
+        ((error as { status: number }).status === 401 ||
+          (error as { status: number }).status === 403)
       ) {
-        window.location.href = "/admin";
+        // window.location.href = "/admin";
+        router.push("/admin");
       }
     }
   };
@@ -267,11 +272,23 @@ export default function ProjectsPage() {
     if (confirm("Are you sure you want to delete this project?")) {
       try {
         const response = await deleteProject(id).unwrap();
-        alert("Project deleted successfully");
+        // alert("Project deleted successfully");
+        toast.success("Project deleted successfully");
         console.log("Delete response:", response);
       } catch (error) {
         console.error("Failed to delete project:", error);
-        alert("Failed to delete project");
+        // alert("Failed to delete project");
+        toast.error("Failed to delete project");
+        if (
+          error &&
+          typeof error === "object" &&
+          "status" in error &&
+          ((error as { status: number }).status === 401 ||
+            (error as { status: number }).status === 403)
+        ) {
+          // window.location.href = "/admin";
+          router.push("/admin");
+        }
       }
     }
   };
@@ -314,7 +331,8 @@ export default function ProjectsPage() {
 
   const handleNavigation = (tab: string) => {
     if (tab === "services") {
-      window.location.href = "/admin/services";
+      // window.location.href = "/admin/services";
+      router.push("/admin/services");
     }
   };
 
@@ -336,6 +354,24 @@ export default function ProjectsPage() {
       updateStatus === selectedProject.status &&
       updateTopImages.length === 0
     : true; // Disable if selectedProject is null
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      // Token not found, redirect to admin route
+      router.push("/admin");
+      return;
+    }
+  }, []);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (isError) {
+    return <div>Error fetching projects</div>;
+  }
 
   return (
     <div className="projects-page">

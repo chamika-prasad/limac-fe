@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { useLoginMutation } from "../api/authApi";
+import { toast } from 'react-toastify';
 import "./page.scss";
 
 export default function LoginPage() {
@@ -18,12 +19,14 @@ export default function LoginPage() {
       .unwrap()
       .then((response) => {
         localStorage.setItem("token", response.data);
-        alert(response.message);
+        // alert(response.message);
+        toast.success(response.message);
         window.location.href = "/admin/projects";
       })
       .catch((error) => {
         console.error("Login failed:", error);
-        alert(error.data.message);
+        // alert(error.data.message);
+        toast.error(error.data.message);
       });
   };
 

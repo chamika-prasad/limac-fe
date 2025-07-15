@@ -24,6 +24,7 @@ import emailIcon from "@/assets/images/email.png";
 import Image from "next/image";
 import { useContactMutation } from "../api/contactApi";
 import classNames from "classnames";
+import { toast } from 'react-toastify';
 import "./page.scss";
 
 export default function About() {
@@ -45,7 +46,8 @@ export default function About() {
         message,
       }).unwrap();
 
-      alert("Message sent successfully!");
+      // alert("Message sent successfully!");
+      toast.success("Message sent successfully!");
 
       // Clear form after success
       setName("");
@@ -54,7 +56,8 @@ export default function About() {
       setMessage("");
     } catch (err) {
       console.error("Error sending message:", err);
-      alert("Something went wrong. Please try again later.");
+      // alert("Something went wrong. Please try again later.");
+      toast.error("Something went wrong. Please try again later.");
     }
   };
 

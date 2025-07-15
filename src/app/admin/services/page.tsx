@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   useAddServiceMutation,
   useDeleteServiceMutation,
@@ -9,9 +9,12 @@ import {
 } from "@/app/api/serviceApi";
 import { Service } from "@/types";
 import classNames from "classnames";
+import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 import "./page.scss";
 
 export default function ServicesPage() {
+  const router = useRouter();
   /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
   const [activeTab, setActiveTab] = useState("services");
   const [showAddModal, setShowAddModal] = useState(false);
@@ -45,8 +48,8 @@ export default function ServicesPage() {
       formData.append("includes", newServiceIncludes);
 
       const response = await addService(formData).unwrap();
-      alert(response?.message || "Service added successfully");
-
+      // alert(response?.message || "Service added successfully");
+      toast.success(response?.message || "Service added successfully");
       // Clear form & close modal
       setNewServiceName("");
       setNewServiceLogo(null);
@@ -55,7 +58,18 @@ export default function ServicesPage() {
       setShowAddModal(false);
     } catch (error) {
       console.error("Failed to add service:", error);
-      alert("Failed to add service");
+      // alert("Failed to add service");
+      toast.error("Failed to add service");
+      if (
+        error &&
+        typeof error === "object" &&
+        "status" in error &&
+        ((error as { status: number }).status === 401 ||
+          (error as { status: number }).status === 403)
+      ) {
+        // window.location.href = "/admin";
+        router.push("/admin");
+      }
     }
   };
 
@@ -84,11 +98,23 @@ export default function ServicesPage() {
         updateData: formData,
       }).unwrap();
 
-      alert(response?.message || "Service updated successfully");
+      // alert(response?.message || "Service updated successfully");
+      toast.success(response?.message || "Service updated successfully");
       setShowEditModal(false);
     } catch (error) {
       console.error("Update failed:", error);
-      alert("Failed to update service.");
+      // alert("Failed to update service.");
+      toast.error("Failed to update service.");
+      if (
+        error &&
+        typeof error === "object" &&
+        "status" in error &&
+        ((error as { status: number }).status === 401 ||
+          (error as { status: number }).status === 403)
+      ) {
+        // window.location.href = "/admin";
+        router.push("/admin");
+      }
     }
   };
 
@@ -105,17 +131,30 @@ export default function ServicesPage() {
     if (confirm("Are you sure you want to delete this service?")) {
       try {
         const response = await deleteService(id).unwrap();
-        alert(response?.message || "Service deleted successfully");
+        // alert(response?.message || "Service deleted successfully");
+        toast.success(response?.message || "Service deleted successfully");
       } catch (error) {
         console.error("Delete failed:", error);
-        alert("Failed to delete service.");
+        // alert("Failed to delete service.");
+        toast.error("Failed to delete service.");
+        if (
+          error &&
+          typeof error === "object" &&
+          "status" in error &&
+          ((error as { status: number }).status === 401 ||
+            (error as { status: number }).status === 403)
+        ) {
+          // window.location.href = "/admin";
+          router.push("/admin");
+        }
       }
     }
   };
 
   const handleNavigation = (tab: string) => {
     if (tab === "projects") {
-      window.location.href = "/admin/projects";
+      // window.location.href = "/admin/projects";
+      router.push("/admin/projects");
     }
   };
 
@@ -124,6 +163,16 @@ export default function ServicesPage() {
     !newServiceLogo ||
     !newServiceImage ||
     !newServiceIncludes;
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      // Token not found, redirect to admin route
+      router.push("/admin");
+      return;
+    }
+  }, []);
 
   return (
     <div className="services-page">
