@@ -36,6 +36,11 @@
       @media screen and (max-width: 500px) {
         gap: 20px;
       }
+
+      .link-text{
+        text-decoration: none;
+        color: $color-white;
+      }
     }
 
     .social-container {

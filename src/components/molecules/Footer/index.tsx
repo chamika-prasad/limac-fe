@@ -11,6 +11,7 @@ import instaIcon from "@/assets/images/insta.png";
 import { fbLink, instaLink, phoneLink, whatsappLink } from "@/utils/constrants";
 import Image from "next/image";
 import "./index.scss";
+import Link from "next/link";
 
 export const Footer = () => {
   return (
@@ -38,31 +39,29 @@ export const Footer = () => {
         </div>
 
         <div className="link-container">
-          <Typography
-            variant="p"
-            label="Home"
-            styles="link-text roboto-semi-bold"
-          />
-          <Typography
-            variant="p"
-            label="About"
-            styles="link-text roboto-semi-bold"
-          />
-          <Typography
-            variant="p"
-            label="Projects"
-            styles="link-text roboto-semi-bold"
-          />
-          <Typography
-            variant="p"
-            label="Services"
-            styles="link-text roboto-semi-bold"
-          />
-          <Typography
-            variant="p"
-            label="Contact"
-            styles="link-text roboto-semi-bold"
-          />
+          <Link href="/" className="link-text">
+            <Typography variant="p" label="Home" styles=" roboto-semi-bold" />
+          </Link>
+          <Link href="/about" className="link-text">
+            <Typography variant="p" label="About" styles="roboto-semi-bold" />
+          </Link>
+          <Link href="/projects" className="link-text">
+            <Typography
+              variant="p"
+              label="Projects"
+              styles="roboto-semi-bold"
+            />
+          </Link>
+          <Link href="/services" className="link-text">
+            <Typography
+              variant="p"
+              label="Services"
+              styles="roboto-semi-bold"
+            />
+          </Link>
+          <Link href="/contact" className="link-text">
+            <Typography variant="p" label="Contact" styles="roboto-semi-bold" />
+          </Link>
         </div>
 
         <div className="social-container">
