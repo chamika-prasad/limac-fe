@@ -58,6 +58,7 @@ export default function Projects() {
               projectImage={project.topImages.split(",")[0]}
               id={project.id}
               location={project.location}
+              urlPrefix={project.urlPrefix}
             />
           ))}
       </section>

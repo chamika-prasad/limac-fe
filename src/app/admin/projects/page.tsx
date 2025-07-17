@@ -166,10 +166,22 @@ export default function ProjectsPage() {
       if (
         error &&
         typeof error === "object" &&
+        "data" in error &&
+        error.data &&
+        typeof error.data === "object" &&
+        "message" in error.data &&
+        typeof error.data.message === "string"
+      ) {
+        toast.error(error.data.message || "Failed to add project");
+      }
+      if (
+        error &&
+        typeof error === "object" &&
         "status" in error &&
         ((error as { status: number }).status === 401 ||
           (error as { status: number }).status === 403)
       ) {
+        toast.error("Please login first ");
         // window.location.href = "/admin";
         router.push("/admin");
       }
@@ -254,7 +266,17 @@ export default function ProjectsPage() {
     } catch (error) {
       console.error("Failed to update project:", error);
       // alert("Failed to update project");
-      toast.error("Failed to update project");
+      if (
+        error &&
+        typeof error === "object" &&
+        "data" in error &&
+        error.data &&
+        typeof error.data === "object" &&
+        "message" in error.data &&
+        typeof error.data.message === "string"
+      ) {
+        toast.error(error.data.message || "Failed to update project");
+      }
       if (
         error &&
         typeof error === "object" &&
@@ -263,6 +285,7 @@ export default function ProjectsPage() {
           (error as { status: number }).status === 403)
       ) {
         // window.location.href = "/admin";
+        toast.error("Please login first ");
         router.push("/admin");
       }
     }
@@ -277,8 +300,19 @@ export default function ProjectsPage() {
         console.log("Delete response:", response);
       } catch (error) {
         console.error("Failed to delete project:", error);
-        // alert("Failed to delete project");
-        toast.error("Failed to delete project");
+
+        if (
+          error &&
+          typeof error === "object" &&
+          "data" in error &&
+          error.data &&
+          typeof error.data === "object" &&
+          "message" in error.data &&
+          typeof error.data.message === "string"
+        ) {
+          toast.error(error.data.message || "Failed to delete project");
+        }
+        
         if (
           error &&
           typeof error === "object" &&
@@ -287,6 +321,7 @@ export default function ProjectsPage() {
             (error as { status: number }).status === 403)
         ) {
           // window.location.href = "/admin";
+          toast.error("Please login first ");
           router.push("/admin");
         }
       }

@@ -5,7 +5,6 @@ import { Typography } from "@/components/atoms/Typography";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { useScreenSize } from "@/utils/useScreenSize";
-
 import "./recentProjectCard.scss";
 
 interface IHomeRecentProjectCardProps {
@@ -16,6 +15,7 @@ interface IHomeRecentProjectCardProps {
   className?: string;
   id: string;
   location: string;
+  urlPrefix: string;
 }
 
 export const HomeRecentProjectCard = ({
@@ -24,14 +24,16 @@ export const HomeRecentProjectCard = ({
   projectDescription,
   projectImage,
   className = "",
+  /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
   id,
   location,
+  urlPrefix,
 }: IHomeRecentProjectCardProps) => {
   const screenSize = useScreenSize();
   const router = useRouter();
 
   const handleCardClick = () => {
-    router.push(`/project/${id}`);
+    router.push(`/project/${urlPrefix}`);
   };
 
   return screenSize.width > 700 ? (

@@ -13,6 +13,7 @@ export type Project = {
   bottomImages: string; // Comma-separated string of image paths
   highlights: string;
   status: "ongoing" | "completed" | "upcoming"; // Assuming limited status options
+  urlPrefix: string;
 };
 
 export type Service = {

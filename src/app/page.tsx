@@ -167,6 +167,7 @@ export default function Home() {
                       id={project.id}
                       className="project-card"
                       location={project.location}
+                      urlPrefix={project.urlPrefix}
                     />
                   )
                 )}
